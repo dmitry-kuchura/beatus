@@ -8,6 +8,10 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use app\components\Header;
+use app\components\Hidden;
+use app\components\Footer;
+use app\components\Contacts;
 
 AppAsset::register($this);
 ?>
@@ -71,11 +75,6 @@ AppAsset::register($this);
     <link rel="stylesheet" property="stylesheet" href="css/components.css">
     <link rel="stylesheet" property="stylesheet" href="css/style.css">
     <link rel="stylesheet" property="stylesheet" href="css/responsive.css">
-    <!-- Внешние js файлы-->
-    <script src="js/libs.js"></script>
-    <script src="js/components.js"></script>
-    <script src="js/inits.js"></script>
-    <script src="js/validation.js"></script>
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="favicons/favicon-32x32.png" sizes="32x32">
@@ -92,56 +91,7 @@ AppAsset::register($this);
 <body class="indexPage">
 <?php $this->beginBody() ?>
 <div class="wWrapper">
-    <header class="wHeader">
-        <div class="wHeaderLeft w_fll">
-            <div data-anchor="wContainer" class="logo js-anchor">
-                <div class="logo_svg">
-                    <svg>
-                        <use xlink:href="#icon_logo"/>
-                    </svg>
-                </div>
-                <div class="logo_text"><img src="pic/logo.png" alt=""></div>
-            </div>
-            <div class="menu_btn">
-                <svg>
-                    <use xlink:href="#icon_menu"/>
-                </svg>
-            </div>
-        </div>
-        <div class="wHeaderRight w_flr"><a href="tel:(044) 287-87-11?call" class="phone">
-                <div class="phone_svg">
-                    <svg>
-                        <use xlink:href="#icon_phone"/>
-                    </svg>
-                </div>
-                <div class="phone_text">(044) 287-87-11</div>
-            </a>
-            <div data-anchor="contacts" class="callback js-anchor">
-                <div class="callback_svg">
-                    <svg>
-                        <use xlink:href="#icon_phone"/>
-                    </svg>
-                </div>
-                <div class="callback_text">Связаться с нами</div>
-            </div>
-            <div class="language">
-                <div class="language_select--cur">
-                    <svg>
-                        <use xlink:href="#icon_arrow"/>
-                    </svg>
-                    <span>Рус</span>
-                </div>
-                <div class="language_drop"><span data-lang="Рус" class="cur">Рус</span><span data-lang="Eng">Eng</span>
-                </div>
-            </div>
-        </div>
-        <div class="wHeaderCenter w_ovh">
-            <div class="menu"><span data-anchor="about" class="js-anchor">О компании</span><span data-anchor="services"
-                                                                                                 class="js-anchor">Услуги</span><span
-                    data-anchor="works" class="js-anchor">Наши работы</span><span data-anchor="news" class="js-anchor">Новости</span><span
-                    data-anchor="contacts" class="js-anchor">Контакты</span></div>
-        </div>
-    </header>
+    <?php echo Header::widget(); ?>
     <!-- .wHeader -->
     <div class="wContainer">
         <div class="slider_block">
@@ -831,157 +781,13 @@ AppAsset::register($this);
                 </div>
             </div>
         </div>
-        <div class="contacts">
-            <div class="wSize">
-                <div class="title_block">
-                    <div class="title_small">Контакты</div>
-                </div>
-                <div data-form="true" class="form_block wForm">
-                    <div class="form_inner">Меня зовут
-                        <div class="form_input">
-                            <input type="text" name="my_name" required data-rule-word="true" data-rule-minlength="2"
-                                   placeholder="полное имя">
-                        </div>
-                        , я хотел бы поговорить о
-                        <div class="form_input">
-                            <input type="text" name="my_theme" required data-rule-minlength="2"
-                                   placeholder="Web Development">
-                        </div>
-                        . Мой адрес электронной почты:
-                        <div class="form_input">
-                            <input type="email" name="my_mail" required data-rule-email="true"
-                                   placeholder="email@mail.com">
-                        </div>
-                        , мой номер:
-                        <div class="form_input">
-                            <input type="tel" name="my_phone" required data-rule-digits="true" data-rule-minlength="10"
-                                   placeholder="номер телефона">
-                        </div>
-                    </div>
-                    <button class="wSubmit"><span>связаться с нами</span></button>
-                </div>
-                <div class="contacts_map_block">
-                    <div class="contacts_map_left">
-                        <div class="contacts_place">г. Киев, <br>ул. Лятошинского, 21</div>
-                        <div class="contacts_phones">
-                            <p>Телефоны:</p>
-                            <div class="phones_item"><a href="tel(044) 287-87-11?call">(044) 287-87-11</a></div>
-                            <div class="phones_item"><a href="tel(097) 287-87-11?call">(097) 287-87-11</a></div>
-                            <div class="phones_item"><a href="tel(050) 287-87-11?call">(050) 287-87-11</a></div>
-                        </div>
-                        <div class="contacts_mail">
-                            <p>Отдел по работе с клиентами</p><a href="mailto:info@beatus.ua">info@beatus.ua</a>
-                        </div>
-                    </div>
-                    <div class="contacts_map">
-                        <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-                        <div id="js-map" data-map-x="50.3793932" data-map-y="30.4448846" data-map-z="17"
-                             data-map-icon="pic/marker.png" class="css-map"></div>
-                    </div>
-                </div>
-                <div class="soc_block"><a href="#" target="_blank" class="soc_link">
-                        <svg>
-                            <use xlink:href="#icon_face"/>
-                        </svg>
-                    </a><a href="#" target="_blank" class="soc_link">
-                        <svg>
-                            <use xlink:href="#icon_you"/>
-                        </svg>
-                    </a><a href="#" target="_blank" class="soc_link">
-                        <svg>
-                            <use xlink:href="#icon_twit"/>
-                        </svg>
-                    </a><a href="#" target="_blank" class="soc_link">
-                        <svg>
-                            <use xlink:href="#icon_google"/>
-                        </svg>
-                    </a></div>
-            </div>
-        </div>
+        <?php echo Contacts::widget(); ?>
         <!-- .wConteiner -->
     </div>
 </div>
-<footer class="wFooter">
-    <div class="wSize">
-        <div class="copywrite">© 2016 Beatus.ua The digital marketing and advertising company.
-            <span>Все права защищены.</span></div>
-        <a href="http://wezom.com.ua" target="_blank" class="wezom">
-            <svg>
-                <use xlink:href="#icon_wezom"/>
-            </svg>
-            <span>Студия Wezom</span></a>
-    </div>
-</footer>
+<?php echo Footer::widget(); ?>
 <!-- .wFooter -->
-<!-- WezomDefs -->
-<!-- script disabled message -->
-<noscript>
-    <input id="wzmMsg_JsClose" type="checkbox" title="Закрыть">
-    <div id="wzmMsg_JsInform" class="wzmMsg_Wrapp">
-        <div class="wzmMsg_Text">
-            <p>В Вашем браузере <strong>отключен JavaScript!</strong> Для корректной работы с сайтом необходима
-                поддержка Javascript.</p>
-            <p>Мы рекомендуем Вам включить использование JavaScript в настройках вашего браузера.</p>
-        </div>
-        <a href="http://wezom.com.ua/" target="_blank" title="Студия Wezom" class="wzmMsg_Link">
-            <img src="pic/wezom-info-red.gif" width="50" height="18" alt="Студия Wezom">
-        </a>
-        <label for="wzmMsg_JsClose" class="wzmMsg_Close"><span>&times;</span></label>
-    </div>
-</noscript>
-<!-- old browser detect -->
-<script>function $wzmOldInit() {
-        var t = document.createElement("script");
-        t.src = "http://verstka.vps.kherson.ua/sources/plugins/wold/wold.js", document.body.appendChild(t)
-    }
-    try {
-        document.addEventListener("DOMContentLoaded", $wzmOldInit, !1)
-    } catch (e) {
-        window.attachEvent("onload", $wzmOldInit)
-    }
-</script>
-<!-- svg sprite -->
-<script>window.wSpriteSvg = function (t, e, i) {
-        var n = {
-            ns: "http://www.w3.org/2000/svg", initialize: function (e, i) {
-                if (this.prefix = "wSpriteSvg_" + e.id, t.localSupport) {
-                    var n = t.localStorage[this.prefix];
-                    if (n) {
-                        var s = JSON.parse(n);
-                        this.setSprite(e, s)
-                    } else this.getJson(e, i)
-                } else this.getJson(e, i)
-            }, getJson: function (e, i) {
-                var n = new XMLHttpRequest, s = this;
-                n.open("GET", i, !0), n.setRequestHeader("Content-type", "application/json"), n.onreadystatechange = function () {
-                    if (4 == n.readyState && 200 == n.status) {
-                        var i = JSON.parse(n.responseText);
-                        s.setSprite(e, i), t.localSupport && t.localWrite(s.prefix, JSON.stringify(i))
-                    }
-                }, n.send()
-            }, buildElem: function (t, i) {
-                var n, s, r;
-                for (n in i)for (s in i[n]) {
-                    var o = e.createElementNS(this.ns, s);
-                    for (r in i[n][s])"stops" === r ? this.buildElem(o, i[n][s][r]) : "innerHTML" == r ? o.innerHTML = i[n][s][r] : o.setAttributeNS(null, r, i[n][s][r]);
-                    t.appendChild(o)
-                }
-            }, setSprite: function (t, i) {
-                for (var n in i) {
-                    var s = i[n], r = e.createElementNS(this.ns, "symbol");
-                    r.setAttributeNS(null, "id", n), r.setAttributeNS(null, "viewBox", s.viewBox), this.buildElem(r, s.symbol), s.hasOwnProperty("gradients") && this.buildElem(t, s.gradients), t.appendChild(r)
-                }
-                this.isDone(t, i)
-            }, isDone: function (t, e) {
-            }
-        };
-        return n
-    }(this, this.document);
-</script>
-<!-- изменить id у svg элемента -> #sprite_SiteName -->
-<svg id="sprite_SiteName" xmlns="http://www.w3.org/2000/svg"
-     style="height:0; width:0; visibility:hidden; position:absolute; top:0; left:0;"
-     onload="wSpriteSvg.initialize(this,'jsons/svgsprite.json')"/>
+<?php echo Hidden::widget(); ?>
 <?php $this->endBody() ?>
 </body>
 </html>

@@ -1,8 +1,10 @@
 <div class="slider_block">
     <div class="slider_bg">
         <div class="slider_bg_container">
-            <div class="js-slider_bg"><img src="pic/slider_bg1.jpg" alt="" data-slide="1"><img
-                    src="pic/slider_bg2.jpg" alt="" data-slide="2"></div>
+            <div class="js-slider_bg">
+                <img src="pic/slider_bg1.jpg" alt="" data-slide="1">
+                <img src="pic/slider_bg2.jpg" alt="" data-slide="2">
+            </div>
         </div>
     </div>
     <div class="wSize">

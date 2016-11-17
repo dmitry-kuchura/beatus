@@ -1,3 +1,37 @@
+<?php
+use yii\helpers\Html;
+use yii\bootstrap\Nav;
+
+yii\bootstrap\NavBar::begin([
+    'brandLabel' => 'My Company',
+    'brandUrl' => Yii::$app->homeUrl,
+    'options' => [
+        'class' => 'navbar-inverse navbar-fixed-top',
+    ],
+]);
+echo Nav::widget([
+    'options' => ['class' => 'navbar-nav navbar-right'],
+    'items' => [
+        ['label' => 'Home', 'url' => ['/site/index']],
+        ['label' => 'About', 'url' => ['/site/about']],
+        ['label' => 'Contact', 'url' => ['/site/contact']],
+        Yii::$app->user->isGuest ? (
+        ['label' => 'Login', 'url' => ['/site/login']]
+        ) : (
+            '<li>'
+            . Html::beginForm(['/site/logout'], 'post')
+            . Html::submitButton(
+                'Logout (' . Yii::$app->user->identity->username . ')',
+                ['class' => 'btn btn-link logout']
+            )
+            . Html::endForm()
+            . '</li>'
+        )
+    ],
+]);
+yii\bootstrap\NavBar::end();
+?>
+
 <header class="wHeader">
     <div class="wHeaderLeft w_fll">
         <div data-anchor="wContainer" class="logo js-anchor">

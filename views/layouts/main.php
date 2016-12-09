@@ -8,7 +8,6 @@ use app\assets\AppAsset;
 
 AppAsset::register($this);
 
-
 use app\components\Header;
 use app\components\Slider;
 use app\components\Contacts;
@@ -16,7 +15,6 @@ use app\components\News;
 use app\components\Works;
 use app\components\Service;
 use app\components\About;
-
 use app\components\Footer;
 use app\components\Hidden;
 

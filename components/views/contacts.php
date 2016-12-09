@@ -43,7 +43,7 @@
             <div class="contacts_map">
                 <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
                 <div id="js-map" data-map-x="50.3793932" data-map-y="30.4448846" data-map-z="17"
-                     data-map-icon="pic/marker.png" class="css-map"></div>
+                     data-map-icon="/pic/marker.png" class="css-map"></div>
             </div>
         </div>
         <div class="soc_block"><a href="#" target="_blank" class="soc_link">

@@ -34,9 +34,6 @@ class IndexController extends MainController
         ];
     }
 
-    /**
-     * @inheritdoc
-     */
     public function actions()
     {
         return [
@@ -50,13 +47,13 @@ class IndexController extends MainController
         ];
     }
 
-    /**
-     * Displays homepage.
-     *
-     * @return string
-     */
     public function actionIndex()
     {
+        $this->view->title = 'Beatus Yii2';
+        return $this->render('index');
+    }
+
+    public function actionTest() {
         return $this->render('index');
     }
 }

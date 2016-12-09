@@ -57,20 +57,20 @@
                         <ul>
                             <li>
                                 <div class="beuseful_text_slide beuseful_text1">Меняем спад на рост</div>
-                                <img src="pic/beuseful2.jpg" alt="" data-anchor="services" class="js-anchor">
+                                <img src="/pic/beuseful2.jpg" alt="" data-anchor="services" class="js-anchor">
                             </li>
                             <li>
                                 <div class="beuseful_text_slide beuseful_text2">Подтолкнем вялотекущий тренд к
                                     активному росту
                                 </div>
-                                <img src="pic/beuseful1.jpg" alt="" data-anchor="services" class="js-anchor">
+                                <img src="/pic/beuseful1.jpg" alt="" data-anchor="services" class="js-anchor">
                             </li>
                             <li>
                                 <div class="beuseful_text_slide beuseful_text3">Вдохновим и побудим к действию
                                     <div class="w_clear"></div>
                                     <span>(если не знаете с чего начать)</span>
                                 </div>
-                                <img src="pic/beuseful3.jpg" alt="" data-anchor="services" class="js-anchor">
+                                <img src="/pic/beuseful3.jpg" alt="" data-anchor="services" class="js-anchor">
                             </li>
                         </ul>
                         <div class="beuseful_pagg">
@@ -92,7 +92,7 @@
             <div class="w_clear"></div>
         </div>
         <div class="ourmission">
-            <div class="ourmission_img w_fll"><img src="pic/mission.jpg" alt=""></div>
+            <div class="ourmission_img w_fll"><img src="/pic/mission.jpg" alt=""></div>
             <div class="ourmission_text w_flr">
                 <div class="mission_title">В чем мы видим <br> свою миссию?</div>
                 <div class="mission_text wTxt">

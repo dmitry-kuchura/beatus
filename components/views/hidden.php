@@ -8,7 +8,7 @@
             <p>Мы рекомендуем Вам включить использование JavaScript в настройках вашего браузера.</p>
         </div>
         <a href="http://wezom.com.ua/" target="_blank" title="Студия Wezom" class="wzmMsg_Link">
-            <img src="pic/wezom-info-red.gif" width="50" height="18" alt="Студия Wezom">
+            <img src="/pic/wezom-info-red.gif" width="50" height="18" alt="Студия Wezom">
         </a>
         <label for="wzmMsg_JsClose" class="wzmMsg_Close"><span>&times;</span></label>
     </div>

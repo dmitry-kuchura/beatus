@@ -2,8 +2,8 @@
     <div class="slider_bg">
         <div class="slider_bg_container">
             <div class="js-slider_bg">
-                <img src="pic/slider_bg1.jpg" alt="" data-slide="1">
-                <img src="pic/slider_bg2.jpg" alt="" data-slide="2">
+                <img src="/pic/slider_bg1.jpg" alt="" data-slide="1">
+                <img src="/pic/slider_bg2.jpg" alt="" data-slide="2">
             </div>
         </div>
     </div>
@@ -24,7 +24,7 @@
                                 </div>
                             </div>
                         </div>
-                        <img src="pic/slide1.jpg" alt="">
+                        <img src="/pic/slide1.jpg" alt="">
                     </li>
                     <li>
                         <div class="slide_top_text">
@@ -39,7 +39,7 @@
                                 </div>
                             </div>
                         </div>
-                        <img src="pic/slide2.jpg" alt="">
+                        <img src="/pic/slide2.jpg" alt="">
                     </li>
                 </ul>
                 <div class="js-slider_pagg"></div>

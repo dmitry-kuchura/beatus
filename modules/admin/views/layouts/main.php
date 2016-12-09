@@ -35,7 +35,7 @@ AdminAsset::register($this);
         <div class="page-header-inner ">
             <div class="page-logo">
                 <a href="<?php echo Url::to('/admin'); ?>">
-                    <img src="<?php echo Url::to('/web/admin/layout/img/logo.png'); ?>" alt="logo"
+                    <img src="<?php echo Url::to('/backend/layout/img/logo.png'); ?>" alt="logo"
                          class="logo-default"/>
                 </a>
                 <div class="menu-toggler sidebar-toggler"></div>

@@ -7,12 +7,12 @@
         <div class="works_list">
             <div class="works_item">
                 <div class="works_item_wrap">
-                    <div class="works_item_img"><img src="pic/work1.jpg" alt=""></div>
+                    <div class="works_item_img"><img src="/pic/work1.jpg" alt=""></div>
                     <div class="works_opus">
                         <div class="works_category">Strategy & Consulting</div>
                         <div class="works_name">Название проекта №1</div>
                         <div
-                            data-markup="{&quot;name&quot;: &quot;Названи проекта&quot;,&quot;share&quot;:&quot;Поделиться&quot;,&quot;text&quot;:&quot;&lt;p&gt;Описание проекта. За ним идет одно или несколько изображений на всю ширину всплывайки. Фон остается неподвижным, прокручивается только всплывайка, причем белая шапка всплывайки остается на месте, чтобы можно было ее закрыть.&lt;/p&gt;&lt;p&gt;Berry will drive growth of key accounts, overseeing the integration and optimisation of enterprise CMS platforms that will enable organisations to develop a holistic view.Frank Digital founder &amp; creative director Matt Barbelli said the agency had successfully made its transition into the enterprise space, with Berry to play a crucial role in overseeing the implementation of the Sitecore Experience Platform for a number of clients.&lt;/p&gt;&quot;,&quot;id&quot;:&quot;1&quot;,&quot;img&quot;:[&quot;pic/work_big1.jpg&quot;,&quot;pic/work_big2.jpg&quot;,&quot;pic/work_big3.jpg&quot;]}"
+                            data-markup="{&quot;name&quot;: &quot;Названи проекта&quot;,&quot;share&quot;:&quot;Поделиться&quot;,&quot;text&quot;:&quot;&lt;p&gt;Описание проекта. За ним идет одно или несколько изображений на всю ширину всплывайки. Фон остается неподвижным, прокручивается только всплывайка, причем белая шапка всплывайки остается на месте, чтобы можно было ее закрыть.&lt;/p&gt;&lt;p&gt;Berry will drive growth of key accounts, overseeing the integration and optimisation of enterprise CMS platforms that will enable organisations to develop a holistic view.Frank Digital founder &amp; creative director Matt Barbelli said the agency had successfully made its transition into the enterprise space, with Berry to play a crucial role in overseeing the implementation of the Sitecore Experience Platform for a number of clients.&lt;/p&gt;&quot;,&quot;id&quot;:&quot;1&quot;,&quot;img&quot;:[&quot;/pic/work_big1.jpg&quot;,&quot;/pic/work_big2.jpg&quot;,&quot;/pic/work_big3.jpg&quot;]}"
                             class="works_link mfiW">Подробнее
                         </div>
                     </div>
@@ -20,12 +20,12 @@
             </div>
             <div class="works_item">
                 <div class="works_item_wrap">
-                    <div class="works_item_img"><img src="pic/work2.jpg" alt=""></div>
+                    <div class="works_item_img"><img src="/pic/work2.jpg" alt=""></div>
                     <div class="works_opus">
                         <div class="works_category">Strategy & Consulting</div>
                         <div class="works_name">Название проекта №1</div>
                         <div
-                            data-markup="{&quot;name&quot;: &quot;Названи проекта в 1-2 &quot;,&quot;share&quot;:&quot;Поделиться&quot;,&quot;text&quot;:&quot;Описание проекта. За ним идет одно или несколько изображений на всю ширину всплывайки. Фон остается неподвижным, прокручивается только всплывайка, причем белая шапка всплывайки остается на месте, чтобы можно было ее закрыть. Berry will drive growth of key accounts, overseeing the integration and optimisation of enterprise CMS platforms that will enable organisations to develop a holistic view.Frank Digital founder &amp; creative director Matt Barbelli said the agency had successfully made its transition into the enterprise space, with Berry to play a crucial role in overseeing the implementation of the Sitecore Experience Platform for a number of clients.&quot;,&quot;id&quot;:&quot;2&quot;,&quot;img&quot;:[&quot;pic/work_big1.jpg&quot;,&quot;pic/work_big3.jpg&quot;]}"
+                            data-markup="{&quot;name&quot;: &quot;Названи проекта в 1-2 &quot;,&quot;share&quot;:&quot;Поделиться&quot;,&quot;text&quot;:&quot;Описание проекта. За ним идет одно или несколько изображений на всю ширину всплывайки. Фон остается неподвижным, прокручивается только всплывайка, причем белая шапка всплывайки остается на месте, чтобы можно было ее закрыть. Berry will drive growth of key accounts, overseeing the integration and optimisation of enterprise CMS platforms that will enable organisations to develop a holistic view.Frank Digital founder &amp; creative director Matt Barbelli said the agency had successfully made its transition into the enterprise space, with Berry to play a crucial role in overseeing the implementation of the Sitecore Experience Platform for a number of clients.&quot;,&quot;id&quot;:&quot;2&quot;,&quot;img&quot;:[&quot;/pic/work_big1.jpg&quot;,&quot;/pic/work_big3.jpg&quot;]}"
                             class="works_link mfiW">Подробнее
                         </div>
                     </div>
@@ -33,12 +33,12 @@
             </div>
             <div class="works_item">
                 <div class="works_item_wrap">
-                    <div class="works_item_img"><img src="pic/work3.jpg" alt=""></div>
+                    <div class="works_item_img"><img src="/pic/work3.jpg" alt=""></div>
                     <div class="works_opus">
                         <div class="works_category">Strategy & Consulting</div>
                         <div class="works_name">Название проекта №1</div>
                         <div
-                            data-markup="{&quot;name&quot;: &quot;Названи проекта в 1-2 строки &quot;,&quot;share&quot;:&quot;Поделиться&quot;,&quot;text&quot;:&quot;&lt;p&gt;Описание проекта. За ним идет одно или несколько изображений на всю ширину всплывайки. Фон остается неподвижным, прокручивается только всплывайка, причем белая шапка всплывайки остается на месте, чтобы можно было ее закрыть.&lt;/p&gt;&lt;p&gt;Berry will drive growth of key accounts, overseeing the integration and optimisation of enterprise CMS platforms that will enable organisations to develop a holistic view.Frank Digital founder &amp; creative director Matt Barbelli said the agency had successfully made its transition into the enterprise space, with Berry to play a crucial role in overseeing the implementation of the Sitecore Experience Platform for a number of clients.&lt;/p&gt;&quot;,&quot;id&quot;:&quot;3&quot;,&quot;img&quot;:[&quot;pic/work_big1.jpg&quot;,&quot;pic/work_big2.jpg&quot;]}"
+                            data-markup="{&quot;name&quot;: &quot;Названи проекта в 1-2 строки &quot;,&quot;share&quot;:&quot;Поделиться&quot;,&quot;text&quot;:&quot;&lt;p&gt;Описание проекта. За ним идет одно или несколько изображений на всю ширину всплывайки. Фон остается неподвижным, прокручивается только всплывайка, причем белая шапка всплывайки остается на месте, чтобы можно было ее закрыть.&lt;/p&gt;&lt;p&gt;Berry will drive growth of key accounts, overseeing the integration and optimisation of enterprise CMS platforms that will enable organisations to develop a holistic view.Frank Digital founder &amp; creative director Matt Barbelli said the agency had successfully made its transition into the enterprise space, with Berry to play a crucial role in overseeing the implementation of the Sitecore Experience Platform for a number of clients.&lt;/p&gt;&quot;,&quot;id&quot;:&quot;3&quot;,&quot;img&quot;:[&quot;/pic/work_big1.jpg&quot;,&quot;/pic/work_big2.jpg&quot;]}"
                             class="works_link mfiW">Подробнее
                         </div>
                     </div>
@@ -46,12 +46,12 @@
             </div>
             <div class="works_item">
                 <div class="works_item_wrap">
-                    <div class="works_item_img"><img src="pic/work4.jpg" alt=""></div>
+                    <div class="works_item_img"><img src="/pic/work4.jpg" alt=""></div>
                     <div class="works_opus">
                         <div class="works_category">Strategy & Consulting</div>
                         <div class="works_name">Название проекта №1</div>
                         <div
-                            data-markup="{&quot;name&quot;: &quot;Названи проекта в 1-2 строки пишется &quot;,&quot;share&quot;:&quot;Поделиться&quot;,&quot;text&quot;:&quot;Описание проекта. За ним идет одно или несколько изображений на всю ширину всплывайки. Фон остается неподвижным, прокручивается только всплывайка, причем белая шапка всплывайки остается на месте, чтобы можно было ее закрыть. Berry will drive growth of key accounts, overseeing the integration and optimisation of enterprise CMS platforms that will enable organisations to develop a holistic view.Frank Digital founder &amp; creative director Matt Barbelli said the agency had successfully made its transition into the enterprise space, with Berry to play a crucial role in overseeing the implementation of the Sitecore Experience Platform for a number of clients.&quot;,&quot;id&quot;:&quot;4&quot;,&quot;img&quot;:[&quot;pic/work_big3.jpg&quot;]}"
+                            data-markup="{&quot;name&quot;: &quot;Названи проекта в 1-2 строки пишется &quot;,&quot;share&quot;:&quot;Поделиться&quot;,&quot;text&quot;:&quot;Описание проекта. За ним идет одно или несколько изображений на всю ширину всплывайки. Фон остается неподвижным, прокручивается только всплывайка, причем белая шапка всплывайки остается на месте, чтобы можно было ее закрыть. Berry will drive growth of key accounts, overseeing the integration and optimisation of enterprise CMS platforms that will enable organisations to develop a holistic view.Frank Digital founder &amp; creative director Matt Barbelli said the agency had successfully made its transition into the enterprise space, with Berry to play a crucial role in overseeing the implementation of the Sitecore Experience Platform for a number of clients.&quot;,&quot;id&quot;:&quot;4&quot;,&quot;img&quot;:[&quot;/pic/work_big3.jpg&quot;]}"
                             class="works_link mfiW">Подробнее
                         </div>
                     </div>
@@ -59,7 +59,7 @@
             </div>
             <div class="works_item">
                 <div class="works_item_wrap">
-                    <div class="works_item_img"><img src="pic/work5.jpg" alt=""></div>
+                    <div class="works_item_img"><img src="/pic/work5.jpg" alt=""></div>
                     <div class="works_opus">
                         <div class="works_category">Strategy & Consulting</div>
                         <div class="works_name">Название проекта №1</div>
@@ -99,7 +99,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="popup_text_block wTxt"><img src="pic/work_big1.jpg" alt="">
+                <div class="popup_text_block wTxt"><img src="/pic/work_big1.jpg" alt="">
                     <p>Описание проекта. За ним идет одно или несколько изображений на всю ширину всплывайки.
                         Фон остается неподвижным, прокручивается только всплывайка, причем белая шапка
                         всплывайки остается на месте, чтобы можно было ее закрыть. Berry will drive growth of

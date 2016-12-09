@@ -11,32 +11,32 @@
         <div class="services_main">
             <div class="services_lister">
                 <div class="services_lister_left w_fll">
-                    <div data-img="pic/service1.jpg" data-service="1" class="services_item cur">
+                    <div data-img="/pic/service1.jpg" data-service="1" class="services_item cur">
                         <svg>
                             <use xlink:href="#icon_ser1"/>
                         </svg>
                         <span>Strategy & Consulting</span>
                     </div>
-                    <div data-img="pic/service2.jpg" data-service="2" class="services_item">
+                    <div data-img="/pic/service2.jpg" data-service="2" class="services_item">
                         <svg>
                             <use xlink:href="#icon_ser2"/>
                         </svg>
                         <span>Creative Design</span>
                     </div>
-                    <div data-img="pic/service1.jpg" data-service="3" class="services_item">
+                    <div data-img="/pic/service1.jpg" data-service="3" class="services_item">
                         <svg>
                             <use xlink:href="#icon_ser3"/>
                         </svg>
                         <span>Web Development</span>
                     </div>
-                    <div data-img="pic/service2.jpg" data-service="4" class="services_item">
+                    <div data-img="/pic/service2.jpg" data-service="4" class="services_item">
                         <svg>
                             <use xlink:href="#icon_ser4"/>
                         </svg>
                         <span>Online Marketing</span>
                     </div>
                 </div>
-                <div class="services_lister_right w_flr"><img src="pic/service1.jpg" alt=""></div>
+                <div class="services_lister_right w_flr"><img src="/pic/service1.jpg" alt=""></div>
                 <div class="w_clear"></div>
             </div>
             <div data-service="1" class="services_text wTxt cur">
@@ -149,7 +149,7 @@
                             решения. И все это можно узнать и прочувствовать, не выходя из дома или офиса.</p>
                     </div>
                 </div>
-                <div class="virtual_img"><img src="pic/virtual.jpg" alt=""></div>
+                <div class="virtual_img"><img src="/pic/virtual.jpg" alt=""></div>
                 <div class="w_clear"></div>
             </div>
         </div>

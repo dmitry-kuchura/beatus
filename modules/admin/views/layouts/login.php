@@ -37,7 +37,7 @@ LoginAsset::register($this);
     <?php $this->beginBody(); ?>
     <div class="logo">
         <a href="<?php echo Url::to('/admin'); ?>">
-            <img src="<?php echo Url::to('/web/admin/layout/img/logo.png'); ?>" alt=""/> </a>
+            <img src="<?php echo Url::to('/backend/layout/img/logo.png'); ?>" alt=""/> </a>
     </div>
     <div class="content">
         <?php echo $content; ?>

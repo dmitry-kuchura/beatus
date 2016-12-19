@@ -35,8 +35,7 @@ AdminAsset::register($this);
         <div class="page-header-inner ">
             <div class="page-logo">
                 <a href="<?php echo Url::to('/admin'); ?>">
-                    <img src="<?php echo Url::to('/backend/layout/img/logo.png'); ?>" alt="logo"
-                         class="logo-default"/>
+                    <img src="<?php echo Url::to('/backend/layout/img/logo.png'); ?>" alt="logo" class="logo-default"/>
                 </a>
                 <div class="menu-toggler sidebar-toggler"></div>
             </div>
@@ -47,7 +46,7 @@ AdminAsset::register($this);
                     <li class="dropdown dropdown-user">
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
                            data-close-others="true">
-                            <img alt="" class="img-circle" src="<?php echo Url::to('/web/admin/layout/img/avatar3_small.jpg'); ?>"/>
+<!--                            <img alt="" class="img-circle" src="--><?php //echo Url::to('/web/admin/layout/img/avatar3_small.jpg'); ?><!--"/>-->
                             <span class="username username-hide-on-mobile">Администратор</span>
                             <i class="fa fa-angle-down"></i>
                         </a>

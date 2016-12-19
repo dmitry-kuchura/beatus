@@ -19,7 +19,8 @@ class MainController extends Controller
             ->where(['status' => 1])
             ->andFilterWhere(['like', 'login', $data['username']])
             ->one();
-        if ($user->pass == $data['password']) {
+
+        if ($user->password == md5($data['password'])) {
             $session->set('login', 'true');
             return true;
         }

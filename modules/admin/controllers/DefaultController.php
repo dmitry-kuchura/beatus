@@ -9,20 +9,22 @@ use yii\web\Response;
 class DefaultController extends MainController
 {
 
-    public function beforeAction($action)
+    public function actionIndex()
     {
+
+//        Пароль = 6D3k0N3w
+
         $session = Yii::$app->session;
-        if (!$session->get('login')) {
+        $this->view->title = 'Панель Администратора - Wezom Yii2';
+
+        if ($session->get('login')) {
+
+            return $this->render('index');
+        } else {
+
             $this->layout = 'login';
             return $this->render('login');
         }
-    }
-
-    public function actionIndex()
-    {
-        $this->view->title = 'Панель Администратора - Wezom Yii2';
-        $this->layout = 'main';
-        return $this->render('index');
     }
 
     public function actionLogin()

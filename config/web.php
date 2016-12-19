@@ -45,8 +45,8 @@ $config = [
             'rules' => [
                 'admin' => 'admin/default/index',
                 '' => 'index/index',
-//                'admin/login' => 'admin/default/login',
-//                'admin/logout' => 'admin/default/logout',
+                'admin/login' => 'admin/default/login',
+                'admin/logout' => 'admin/default/logout',
                 '<action>' => 'index/<action>',
             ],
         ],

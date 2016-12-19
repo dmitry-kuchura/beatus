@@ -7,7 +7,7 @@ use app\components\Text;
 
 
 <h3 class="page-title"><?php echo $this->title; ?></h3>
-
+<?php /*
 <div class="row">
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
         <div class="dashboard-stat blue">
@@ -155,3 +155,4 @@ use app\components\Text;
 
 </div>
 
+*/ ?>

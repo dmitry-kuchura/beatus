@@ -2,7 +2,7 @@
 namespace app\components;
 
 use yii\base\Widget;
-use app\modules\admin\models\News as Model;
+use app\models\News as Model;
 
 class News extends Widget
 {
@@ -17,11 +17,11 @@ class News extends Widget
     {
         ob_get_clean();
 
-        $query = Model::find()
+        $result = Model::find()
             ->orderBy('date DESC')
             ->limit(7)
             ->all();
 
-        return $this->render('news', ['result' => $query]);
+        return $this->render('news', ['result' => $result]);
     }
 }

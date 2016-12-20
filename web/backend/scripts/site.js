@@ -39,27 +39,28 @@ jQuery(document).ready(function ($) {
         });
     });
 
-    $('.portlet').on('click', 'button.setSort', function (event) {
+    $('.statusBox').on('click', function (event) {
         event.preventDefault();
-        var
-            $button = $(this),
-            $td = $button.closest('td'),
-            $tr = $td.parent('tr');
 
-        var id = $tr.data('id');
-        var input = $td.find('.sortID');
-        var sort = input.val();
+        var id = $(this).data('id');
+        var status = $(this).data('status');
+        var check = $(this);
 
         $.ajax({
-            url: '/admin/pages/sort',
+            url: '/admin/news/status',
             type: 'POST',
             dataType: 'JSON',
             data: {
                 id: id,
-                sort: sort,
+                status: status
             },
             success: function (data) {
-                generate('Поле было отсортировано!', 'success', 7000);
+                if (status == 0) {
+                    $('#radio54').prop('checked', true);
+                } else {
+                    $('#radio53').prop('checked', true);
+                }
+                generate('Статус был изменен!', 'success', 7000);
             }
         });
     });

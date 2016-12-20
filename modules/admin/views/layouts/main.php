@@ -9,6 +9,7 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AdminAsset;
+
 $active = Yii::$app->controller->route;
 $ctrl = Yii::$app->controller->id;
 
@@ -79,41 +80,40 @@ AdminAsset::register($this);
                     <li class="heading">
                         <h3 class="uppercase">Навигация</h3>
                     </li>
-                    <li class="nav-item <?php echo $ctrl == 'category' ? 'active open' : ''; ?>">
+                    <li class="nav-item <?php echo $ctrl == 'news' ? 'active open' : ''; ?>">
                         <a href="javascript:;" class="nav-link nav-toggle">
-                            <i class="icon-puzzle"></i>
-                            <span class="title">Разделы</span>
-                            <span class="arrow <?php echo $ctrl == 'category' ? 'open' : ''; ?>"></span>
+                            <i class="icon-book-open"></i>
+                            <span class="title">Новости</span>
+                            <span class="arrow <?php echo $ctrl == 'news' ? 'open' : ''; ?>"></span>
                         </a>
                         <ul class="sub-menu">
                             <li class="nav-item <?php echo $active == 'admin/category/index' ? 'active open' : ''; ?>">
-                                <a href="<?php echo Url::to(['/admin/category']); ?>" class="nav-link ">
-                                    <span class="title">Список разделов</span>
+                                <a href="<?php echo Url::to(['/admin/news']); ?>" class="nav-link ">
+                                    <span class="title">Список новостей</span>
                                 </a>
                             </li>
-                            <li class="nav-item <?php echo $active == 'admin/category/create' ? 'active open' : ''; ?>">
-                                <a href="<?php echo Url::to(['/admin/category/create']); ?>" class="nav-link ">
-                                    <span class="title">Создать раздел</span>
-<!--                                    <span class="badge badge-danger">2</span>-->
+                            <li class="nav-item <?php echo $active == 'admin/news/create' ? 'active open' : ''; ?>">
+                                <a href="<?php echo Url::to(['/admin/news/create']); ?>" class="nav-link ">
+                                    <span class="title">Создать новость</span>
                                 </a>
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item <?php echo $ctrl == 'pages' ? 'active open' : ''; ?>">
+                    <li class="nav-item <?php echo $ctrl == 'project' ? 'active open' : ''; ?>">
                         <a href="javascript:;" class="nav-link nav-toggle">
                             <i class="icon-layers"></i>
-                            <span class="title">Страницы</span>
-                            <span class="arrow <?php echo $ctrl == 'pages' ? 'open' : ''; ?>"></span>
+                            <span class="title">Проекты</span>
+                            <span class="arrow <?php echo $ctrl == 'project' ? 'open' : ''; ?>"></span>
                         </a>
                         <ul class="sub-menu">
-                            <li class="nav-item <?php echo $active == 'admin/pages/index' ? 'active open' : ''; ?>">
+                            <li class="nav-item <?php echo $active == 'admin/project/index' ? 'active open' : ''; ?>">
                                 <a href="<?php echo Url::to(['/admin/pages']); ?>" class="nav-link ">
-                                    <span class="title">Список страниц</span>
+                                    <span class="title">Список проектов</span>
                                 </a>
                             </li>
-                            <li class="nav-item <?php echo $active == 'admin/pages/create' ? 'active open' : ''; ?>">
+                            <li class="nav-item <?php echo $active == 'admin/project/create' ? 'active open' : ''; ?>">
                                 <a href="<?php echo Url::to(['/admin/pages/create']); ?>" class="nav-link ">
-                                    <span class="title">Создать страницу</span>
+                                    <span class="title">Создать проект</span>
                                 </a>
                             </li>
                         </ul>
@@ -126,8 +126,8 @@ AdminAsset::register($this);
                         </a>
                         <ul class="sub-menu">
                             <li class="nav-item  ">
-                                <a href="page_general_faq.html" class="nav-link ">
-                                    <i class="icon-wrench"></i>
+                                <a href="<?php echo Url::to(['/admin/config/index']); ?>" class="nav-link ">
+                                    <i class="icon-settings"></i>
                                     <span class="title">Основные</span>
                                 </a>
                             </li>

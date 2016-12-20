@@ -49,8 +49,6 @@ class AdminAsset extends AppAsset
         'backend/global/scripts/quick-sidebar.min.js',
         'js/noty/packaged/jquery.noty.packaged.js',
         'backend/scripts/site.js',
-        'js/snowfall.js',
-        'js/snowfall.jquery.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

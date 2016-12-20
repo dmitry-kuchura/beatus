@@ -11,46 +11,18 @@ use app\controllers\MainController;
 
 class IndexController extends MainController
 {
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'only' => ['logout'],
-                'rules' => [
-                    [
-                        'actions' => ['logout'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
-        ];
-    }
-
-    public function actions()
-    {
-        return [
-            'error' => [
-                'class' => 'yii\web\ErrorAction',
-            ],
-            'captcha' => [
-                'class' => 'yii\captcha\CaptchaAction',
-                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
-            ],
-        ];
-    }
 
     public function actionIndex()
     {
         $this->view->title = 'Beatus Yii2';
         return $this->render('index');
+    }
+
+    public function actionError()
+    {
+        $this->layout = '404';
+        $this->view->title = '#404 Not Found';
+        return $this->render('404');
     }
 
     public function actionTest() {

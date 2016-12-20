@@ -37,7 +37,7 @@ class News extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['created_at', 'updated_at', 'status', 'date', 'views'], 'integer'],
+            [['created_at', 'updated_at', 'status', 'views'], 'integer'],
             [['name'], 'required'],
             [['text', 'description', 'keywords'], 'string'],
             [['name', 'h1', 'title'], 'string', 'max' => 150],
@@ -54,15 +54,15 @@ class News extends \yii\db\ActiveRecord
             'id' => 'ID',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
-            'name' => 'Name',
-            'text' => 'Text',
+            'name' => 'Название',
+            'text' => 'Текст',
             'h1' => 'H1',
             'title' => 'Title',
             'description' => 'Description',
             'keywords' => 'Keywords',
-            'status' => 'Status',
-            'date' => 'Date',
-            'image' => 'Image',
+            'status' => 'Статус',
+            'date' => 'Дата',
+            'image' => 'Изображение',
             'views' => 'Views',
         ];
     }

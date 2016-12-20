@@ -1,5 +1,5 @@
 <?php
-namespace app\components;
+namespace app\modules\admin\components;
 
 /*
 * File: SimpleImage.php
@@ -103,6 +103,4 @@ class SimpleImage
         $this->image = $new_image;
     }
 }
-
-?>
 

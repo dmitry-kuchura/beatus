@@ -11,6 +11,7 @@ use yii\filters\VerbFilter;
 use yii\data\Pagination;
 use yii\web\HttpException;
 use yii\web\Response;
+use app\modules\admin\components\FileUpload;
 
 class NewsController extends Controller
 {
@@ -69,9 +70,18 @@ class NewsController extends Controller
     {
         $model = $this->findModel($id);
 
-//        Yii::$app->request->post('News')['date'] = strtotime(Yii::$app->request->post('News')['date']);
+        if (Yii::$app->request->post()) {
+            $data['News'] = Yii::$app->request->post('News');
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $model->name = $data['News']['name'];
+            $model->text = $data['News']['text'];
+            $model->date = strtotime($data['News']['date']);
+
+            $file = FileUpload::uploadImage('image/news', $name = 'image');
+            $model->image = $file;
+        }
+
+        if ($model->update()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
@@ -87,14 +97,15 @@ class NewsController extends Controller
         return $this->redirect(['index']);
     }
 
-    public function actionStatus() {
+    public function actionStatus()
+    {
         Yii::$app->response->format = Response::FORMAT_JSON;
 
         $post = Yii::$app->request->post();
 
         $model = $this->findModel($post['id']);
 
-        $model->status = (int) $post['status'];
+        $model->status = (int)$post['status'];
 
         if ($model->save()) {
             return ['result' => 'true'];

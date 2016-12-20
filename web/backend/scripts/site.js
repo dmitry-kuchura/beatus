@@ -56,9 +56,9 @@ jQuery(document).ready(function ($) {
             },
             success: function (data) {
                 if (status == 0) {
-                    $('#radio54').prop('checked', true);
+                    $('#on').prop('checked', true);
                 } else {
-                    $('#radio53').prop('checked', true);
+                    $('#off').prop('checked', true);
                 }
                 generate('Статус был изменен!', 'success', 7000);
             }

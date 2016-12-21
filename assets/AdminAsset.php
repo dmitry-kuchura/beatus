@@ -17,6 +17,7 @@ class AdminAsset extends AppAsset
         'backend/plugins/jqvmap/jqvmap/jqvmap.css',
         'backend/css/components.min.css',
         'backend/css/plugins.min.css',
+        'backend/css/main.css',
         'backend/layout/css/layout.min.css',
         'backend/layout/css/themes/darkblue.min.css',
         'backend/layout/css/custom.min.css',

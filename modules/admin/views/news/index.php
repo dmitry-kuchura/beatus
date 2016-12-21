@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -29,12 +30,17 @@ use yii\grid\GridView;
                                     <i class="fa fa-info"></i> Название
                                 </th>
                                 <th>
+                                    <i class="fa fa-picture-o"></i> Изображение
+                                </th>
+                                <th>
                                     <i class="fa fa-calendar"></i> Дата
                                 </th>
                                 <th>
                                     <i class="fa fa-check"></i> Статус
                                 </th>
-                                <th></th>
+                                <th>
+                                    <i class="fa fa-filter"></i> Операции
+                                </th>
                             </tr>
                             </thead>
                             <tbody>
@@ -43,6 +49,13 @@ use yii\grid\GridView;
                                     <td class="highlight">
                                         <div class="success"></div>
                                         <a href="<?php echo yii\helpers\Url::to(['/admin/news/update', 'id' => $news->id]) ?>"><?php echo $news->name; ?></a>
+                                    </td>
+                                    <td>
+                                        <?php if (is_file(HOST . Url::to('/image/news/main/' . $news->image))): ?>
+                                            <?php echo Html::img(Url::to('/image/news/main/' . $news->image), ['style' => 'max-width: 50px;']); ?>
+                                        <?php else: ?>
+                                            -----
+                                        <?php endif; ?>
                                     </td>
                                     <td><?php echo date('d/m/Y', $news->date); ?></td>
                                     <td>

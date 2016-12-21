@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use dosamigos\datepicker\DatePicker;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\admin\models\News */
@@ -11,7 +12,7 @@ use dosamigos\datepicker\DatePicker;
 
 <div class="news-form form-group form-md-line-input">
 
-    <?php $form = ActiveForm::begin(['options' => ['enctype'=>'multipart/form-data']]); ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
     <?php echo $form->field($model, 'name')->textInput(['maxlength' => true]); ?>
 
@@ -50,9 +51,17 @@ use dosamigos\datepicker\DatePicker;
         </div>
     </div>
 
-    <div class="form-group">
-        <input type="file" name="image">
-    </div>
+    <?php if (is_file(HOST . Url::to('/image/news/main/' . $model['image']))): ?>
+        <div id="preview-pane">
+            <div class="preview-container">
+                <?php echo Html::img(Url::to('/image/news/main/' . $model['image']), ['style' => 'max-width: 235px;']); ?>
+            </div>
+        </div>
+    <?php else: ?>
+        <div class="form-group">
+            <input type="file" name="image">
+        </div>
+    <?php endif; ?>
 
     <div class="form-group">
         <?php echo Html::submitButton($model->isNewRecord ? 'Создать' : 'Обновить', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']); ?>

@@ -34,7 +34,7 @@ class NewsController extends Controller
         $this->view->title = 'Новости';
         $this->view->params['breadcrumbs'][] = 'Новости';
 
-        $query = News::find()->orderBy('id DESC');
+        $query = News::find();
         // pager
         $pager = new Pagination(['totalCount' => $query->count(), 'pageSize' => 4, 'pageSizeParam' => false, 'forcePageParam' => false]);
         // get data

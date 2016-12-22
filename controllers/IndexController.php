@@ -15,8 +15,6 @@ class IndexController extends MainController
 
     public function actionIndex()
     {
-
-        $this->registerParams();
         $this->view->title = 'Beatus Yii2';
         return $this->render('index');
     }

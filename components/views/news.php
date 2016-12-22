@@ -58,7 +58,8 @@ use yii\helpers\Html; ?>
             <?php endif; ?>
         </div>
         <div class="upload_more_block">
-            <div class="upload_more"><span>Загрузить еще</span></div>
+            <input type="hidden" class="pageNews" value="1">
+            <div class="upload_more"><span class="moreNews">Загрузить еще</span></div>
         </div>
     </div>
 </div>

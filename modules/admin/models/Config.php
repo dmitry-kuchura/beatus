@@ -11,7 +11,6 @@ use Yii;
  * @property string $name
  * @property string $val
  * @property string $data
- * @property string $type
  * @property integer $status
  */
 class Config extends \yii\db\ActiveRecord
@@ -32,7 +31,7 @@ class Config extends \yii\db\ActiveRecord
         return [
             [['val'], 'string'],
             [['status'], 'integer'],
-            [['name', 'data', 'type'], 'string', 'max' => 150],
+            [['name', 'data'], 'string', 'max' => 150],
         ];
     }
 
@@ -43,11 +42,10 @@ class Config extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'val' => 'Val',
+            'name' => 'Параметр',
+            'val' => 'Значение',
             'data' => 'Data',
-            'type' => 'Type',
-            'status' => 'Status',
+            'status' => 'Статус',
         ];
     }
 }

@@ -12,7 +12,7 @@
                 , я хотел бы поговорить о
                 <div class="form_input">
                     <input type="text" name="my_theme" required data-rule-minlength="2"
-                           placeholder="Web Development">
+                           placeholder="Вэб Разработка">
                 </div>
                 . Мой адрес электронной почты:
                 <div class="form_input">
@@ -29,39 +29,50 @@
         </div>
         <div class="contacts_map_block">
             <div class="contacts_map_left">
-                <div class="contacts_place">г. Киев, <br>ул. Лятошинского, 21</div>
+                <div class="contacts_place"><?php echo $params['address']; ?></div>
                 <div class="contacts_phones">
                     <p>Телефоны:</p>
-                    <div class="phones_item"><a href="tel(044) 287-87-11?call">(044) 287-87-11</a></div>
-                    <div class="phones_item"><a href="tel(097) 287-87-11?call">(097) 287-87-11</a></div>
-                    <div class="phones_item"><a href="tel(050) 287-87-11?call">(050) 287-87-11</a></div>
+                    <div class="phones_item">
+                        <a href="tel:<?php echo preg_replace("/[^0-9]/", '', $params['phone_1']); ?>?call"><?php echo $params['phone_1']; ?></a>
+                    </div>
+                    <div class="phones_item">
+                        <a href="tel:<?php echo preg_replace("/[^0-9]/", '', $params['phone_2']); ?>?call"><?php echo $params['phone_2']; ?></a>
+                    </div>
+                    <div class="phones_item">
+                        <a href="tel:<?php echo preg_replace("/[^0-9]/", '', $params['phone_3']); ?>?call"><?php echo $params['phone_3']; ?></a>
+                    </div>
                 </div>
                 <div class="contacts_mail">
-                    <p>Отдел по работе с клиентами</p><a href="mailto:info@beatus.ua">info@beatus.ua</a>
+                    <p>Отдел по работе с клиентами</p><a href="mailto:<?php echo $params['email']; ?>"><?php echo $params['email']; ?></a>
                 </div>
             </div>
             <div class="contacts_map">
-                <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-                <div id="js-map" data-map-x="50.3793932" data-map-y="30.4448846" data-map-z="17"
+                <script src="http://maps.google.com/maps/api/js?key=<?php echo $params['api-key']; ?>"></script>
+                <div id="js-map" data-map-x="<?php echo $params['map-x']; ?>" data-map-y="<?php echo $params['map-y']; ?>" data-map-z="17"
                      data-map-icon="/pic/marker.png" class="css-map"></div>
             </div>
         </div>
-        <div class="soc_block"><a href="#" target="_blank" class="soc_link">
+        <div class="soc_block">
+            <a href="<?php echo $params['facebook']; ?>" target="_blank" class="soc_link">
                 <svg>
                     <use xlink:href="#icon_face"/>
                 </svg>
-            </a><a href="#" target="_blank" class="soc_link">
+            </a>
+            <a href="<?php echo $params['youtube']; ?>" target="_blank" class="soc_link">
                 <svg>
                     <use xlink:href="#icon_you"/>
                 </svg>
-            </a><a href="#" target="_blank" class="soc_link">
+            </a>
+            <a href="<?php echo $params['twitter']; ?>" target="_blank" class="soc_link">
                 <svg>
                     <use xlink:href="#icon_twit"/>
                 </svg>
-            </a><a href="#" target="_blank" class="soc_link">
+            </a>
+            <a href="<?php echo $params['google']; ?>" target="_blank" class="soc_link">
                 <svg>
                     <use xlink:href="#icon_google"/>
                 </svg>
-            </a></div>
+            </a>
+        </div>
     </div>
 </div>

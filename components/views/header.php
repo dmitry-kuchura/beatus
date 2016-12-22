@@ -14,13 +14,13 @@
             </svg>
         </div>
     </div>
-    <div class="wHeaderRight w_flr"><a href="tel:(044) 287-87-11?call" class="phone">
+    <div class="wHeaderRight w_flr"><a href="tel:<?php echo preg_replace("/[^0-9]/", '', $phone); ?>?call" class="phone">
             <div class="phone_svg">
                 <svg>
                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_phone"></use>
                 </svg>
             </div>
-            <div class="phone_text">(044) 287-87-11</div>
+            <div class="phone_text"><?php echo $phone; ?></div>
         </a>
         <div data-anchor="contacts" class="callback js-anchor">
             <div class="callback_svg">

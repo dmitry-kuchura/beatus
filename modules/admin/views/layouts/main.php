@@ -125,7 +125,7 @@ AdminAsset::register($this);
                             <span class="arrow <?php echo $ctrl == 'config' ? 'open' : ''; ?>"></span>
                         </a>
                         <ul class="sub-menu">
-                            <li class="nav-item  ">
+                            <li class="nav-item <?php echo $active == 'admin/config/index' ? 'active open' : ''; ?>">
                                 <a href="<?php echo Url::to(['/admin/config/index']); ?>" class="nav-link ">
                                     <i class="icon-settings"></i>
                                     <span class="title">Основные</span>
@@ -159,8 +159,8 @@ AdminAsset::register($this);
         </div>
     </div>
     <!--[if lt IE 9]>
-    <script src="../web/admin/plugins/respond.min.js"></script>
-    <script src="../web/admin/plugins/excanvas.min.js"></script>
+    <script src="/backend/plugins/respond.min.js"></script>
+    <script src="/backend/plugins/excanvas.min.js"></script>
     <![endif]-->
 
     <?php $this->endBody() ?>

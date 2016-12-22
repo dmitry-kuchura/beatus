@@ -2,6 +2,7 @@
 namespace app\components;
 
 use yii\base\Widget;
+use yii\db\Query;
 
 class Footer extends Widget
 {
@@ -15,6 +16,14 @@ class Footer extends Widget
     public function run()
     {
         ob_get_clean();
-        return $this->render('footer');
+
+        // Copyright
+        $query = new Query;
+        $query->select('val')
+            ->from('config')
+            ->where(['data' => 'copyright']);
+        $copyright = $query->one();
+
+        return $this->render('footer', ['copyright' => $copyright['val']]);
     }
 }

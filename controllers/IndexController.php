@@ -7,6 +7,7 @@ use yii\web\Controller;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use app\controllers\MainController;
+use yii\db\Query;
 
 
 class IndexController extends MainController
@@ -14,6 +15,8 @@ class IndexController extends MainController
 
     public function actionIndex()
     {
+
+        $this->registerParams();
         $this->view->title = 'Beatus Yii2';
         return $this->render('index');
     }
@@ -23,9 +26,5 @@ class IndexController extends MainController
         $this->layout = '404';
         $this->view->title = '#404 Not Found';
         return $this->render('404');
-    }
-
-    public function actionTest() {
-        return $this->render('index');
     }
 }

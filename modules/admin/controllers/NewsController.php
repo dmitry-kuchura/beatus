@@ -76,9 +76,12 @@ class NewsController extends Controller
             $model->name = $data['News']['name'];
             $model->text = $data['News']['text'];
             $model->date = strtotime($data['News']['date']);
+            $model->status = (int)$data['News']['status'] == 0 ? 0 : 1;
 
-            $file = FileUpload::uploadImage('image/news', $name = 'image', 'news');
-            $model->image = $file;
+            if ($_FILES) {
+                $file = FileUpload::uploadImage('image/news', $name = 'image', 'news');
+                $model->image = $file;
+            }
         }
 
         if (Yii::$app->request->post() && $model->save()) {

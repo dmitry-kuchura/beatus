@@ -1,4 +1,5 @@
-<?php use yii\helpers\Url; ?>
+<?php use yii\helpers\Url;
+use yii\helpers\Html; ?>
 <div class="news">
     <div class="wSize">
         <div class="title_block">
@@ -10,7 +11,12 @@
                 <?php foreach ($result as $obj): ?>
                     <div class="news_item">
                         <div class="news_item_wrap">
-                            <div class="news_item_container"><img src="/pic/service1.jpg" alt="">
+                            <div class="news_item_container">
+                                <?php if (is_file(HOST . Url::to('/image/news/main/' . $obj->image))): ?>
+                                    <?php echo Html::img(Url::to('/image/news/main/' . $obj->image), ['alt' => '']); ?>
+                                <?php else: ?>
+                                    -----
+                                <?php endif; ?>
                                 <div class="news_item_inner">
                                     <div class="category_date">
                                         <div class="category">новости</div>
@@ -25,7 +31,7 @@
                                             "next":"<?php echo 'Следующая новость'; ?>",
                                             "name": "<?php echo $obj->name; ?>",
                                             "share":"<?php echo 'Поделиться'; ?>",
-                                            "img":["<?php echo Url::to('/pic/no-news-popup.png'); ?>"],
+                                            "img":["<?php echo Url::to('/image/news/main/' . $obj->image); ?>"],
                                             "text":"<?php echo str_replace($from, $to, $text); ?>",
                                             "id":"<?php echo $obj->id; ?>"}'
                                              class="news_name mfiN"><?php echo $obj->name; ?></div>

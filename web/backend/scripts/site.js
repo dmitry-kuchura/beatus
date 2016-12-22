@@ -38,32 +38,4 @@ jQuery(document).ready(function ($) {
             }
         });
     });
-
-    $('.statusBox').on('click', function (event) {
-        event.preventDefault();
-
-        var id = $(this).data('id');
-        var status = $(this).data('status');
-        var check = $(this);
-
-        $.ajax({
-            url: '/admin/news/status',
-            type: 'POST',
-            dataType: 'JSON',
-            data: {
-                id: id,
-                status: status
-            },
-            success: function (data) {
-                if (status == 0) {
-                    $('#on').prop('checked', true);
-                } else {
-                    $('#off').prop('checked', true);
-                }
-                generate('Статус был изменен!', 'success', 7000);
-            }
-        });
-    });
-
-
 });

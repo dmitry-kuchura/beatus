@@ -118,11 +118,11 @@ AdminAsset::register($this);
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item <?php echo $ctrl == 'settings' ? 'active open' : ''; ?>">
+                    <li class="nav-item <?php echo $ctrl == 'config' ? 'active open' : ''; ?>">
                         <a href="javascript:;" class="nav-link nav-toggle">
                             <i class="icon-wrench"></i>
                             <span class="title">Настройки</span>
-                            <span class="arrow <?php echo $ctrl == 'pages' ? 'open' : ''; ?>"></span>
+                            <span class="arrow <?php echo $ctrl == 'config' ? 'open' : ''; ?>"></span>
                         </a>
                         <ul class="sub-menu">
                             <li class="nav-item  ">

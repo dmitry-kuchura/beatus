@@ -17,7 +17,6 @@ use Yii;
  * @property string $description
  * @property string $keywords
  * @property integer $status
- * @property integer $date
  * @property string $image
  * @property integer $views
  */

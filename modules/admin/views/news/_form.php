@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use dosamigos\datepicker\DatePicker;
 use yii\helpers\Url;
+use app\modules\admin\components\DatePicker as Picker;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\admin\models\News */
@@ -18,21 +19,20 @@ use yii\helpers\Url;
 
     <?php echo $form->field($model, 'text')->textarea(['rows' => 6]); ?>
 
-    <?php echo $form->field($model, 'date')->widget(
-        DatePicker::className(), [
-        'id' => 'date',
-        'inline' => true,
-        'template' => '<div class="well well-sm" style="background-color: #fff; width:250px">{input}</div>',
+    <?php echo DatePicker::widget([
+        'name' => 'News[date]',
+        'value' => date('d-m-Y', $model['date']),
+        'template' => '{addon}{input}',
         'clientOptions' => [
             'autoclose' => true,
             'format' => 'dd-M-yyyy'
         ]
-    ]); ?>
+    ]);?>
 
     <div class="form-group form-md-line-input">
         <div class="md-radio-inline">
             <div class="md-radio">
-                <input type="radio" id="on" name="status"
+                <input type="radio" id="on" name="News[status]" value="1"
                        class="md-radiobtn" <?php echo $model['status'] == 1 ? 'checked=""' : ''; ?>>
                 <label for="on">
                     <span class="inc"></span>
@@ -40,7 +40,7 @@ use yii\helpers\Url;
                     <span class="box statusBox" data-id="<?php echo $model['id']; ?>" data-status="1"></span>Опубликована</label>
             </div>
             <div class="md-radio has-error">
-                <input type="radio" id="off" name="status"
+                <input type="radio" id="off" name="News[status]" value="0"
                        class="md-radiobtn" <?php echo $model['status'] == 0 ? 'checked=""' : ''; ?>>
                 <label for="off">
                     <span class="inc"></span>

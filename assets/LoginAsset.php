@@ -17,6 +17,7 @@ class LoginAsset extends AppAsset
         'backend/global/css/components.min.css',
         'backend/global/css/plugins.min.css',
         'backend/pages/css/login.min.css',
+        'js/noty/css/animate.css'
     ];
     public $js = [
         'backend/global/plugins/js.cookie.min.js',

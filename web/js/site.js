@@ -1,3 +1,15 @@
+function generate(message, type, time) {
+    noty({
+        text: message,
+        type: type,
+        timeout: time || false,
+        animation: {
+            open: 'animated flipInX', // Animate.css class names
+            close: 'animated flipOutX' // Animate.css class names
+        }
+    });
+}
+
 jQuery(document).ready(function ($) {
     $('.moreNews').on('click', function () {
         var container = $('.news_list');

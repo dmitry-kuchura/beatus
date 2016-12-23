@@ -3,28 +3,32 @@
         <div class="title_block">
             <div class="title_small">Контакты</div>
         </div>
-        <div data-form="true" class="form_block wForm">
+        <div data-form="true" class="form_block wForm" data-ajax="contacts">
             <div class="form_inner">Меня зовут
                 <div class="form_input">
-                    <input type="text" name="my_name" required data-rule-word="true" data-rule-minlength="2"
+                    <input type="text" name="name" data-name="name" required data-rule-word="true"
+                           data-rule-minlength="2"
                            placeholder="полное имя">
                 </div>
                 , я хотел бы поговорить о
                 <div class="form_input">
-                    <input type="text" name="my_theme" required data-rule-minlength="2"
+                    <input type="text" name="theme" data-name="theme" required data-rule-minlength="2"
                            placeholder="Вэб Разработка">
                 </div>
                 . Мой адрес электронной почты:
                 <div class="form_input">
-                    <input type="email" name="my_mail" required data-rule-email="true"
+                    <input type="email" name="email" data-name="email" required data-rule-email="true"
                            placeholder="email@mail.com">
                 </div>
                 , мой номер:
                 <div class="form_input">
-                    <input type="tel" name="my_phone" required data-rule-digits="true" data-rule-minlength="10"
+                    <input type="tel" name="phone" data-name="phone" required data-rule-digits="true"
+                           data-rule-minlength="10"
                            placeholder="номер телефона">
                 </div>
             </div>
+            <input type="hidden" data-name="<?php echo Yii::$app->request->csrfParam; ?>"
+                   value=" <?php echo Yii::$app->request->getCsrfToken(); ?>">
             <button class="wSubmit"><span>связаться с нами</span></button>
         </div>
         <div class="contacts_map_block">
@@ -43,12 +47,14 @@
                     </div>
                 </div>
                 <div class="contacts_mail">
-                    <p>Отдел по работе с клиентами</p><a href="mailto:<?php echo $params['email']; ?>"><?php echo $params['email']; ?></a>
+                    <p>Отдел по работе с клиентами</p><a
+                            href="mailto:<?php echo $params['email']; ?>"><?php echo $params['email']; ?></a>
                 </div>
             </div>
             <div class="contacts_map">
                 <script src="http://maps.google.com/maps/api/js?key=<?php echo $params['api-key']; ?>"></script>
-                <div id="js-map" data-map-x="<?php echo $params['map-x']; ?>" data-map-y="<?php echo $params['map-y']; ?>" data-map-z="17"
+                <div id="js-map" data-map-x="<?php echo $params['map-x']; ?>"
+                     data-map-y="<?php echo $params['map-y']; ?>" data-map-z="17"
                      data-map-icon="/pic/marker.png" class="css-map"></div>
             </div>
         </div>

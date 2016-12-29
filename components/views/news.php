@@ -12,11 +12,14 @@ use yii\helpers\Html; ?>
                     <div class="news_item">
                         <div class="news_item_wrap">
                             <div class="news_item_container">
-                                <?php if (is_file(HOST . Url::to('/image/news/main/' . $obj->image))): ?>
-                                    <?php echo Html::img(Url::to('/image/news/main/' . $obj->image), ['alt' => '']); ?>
+                                <?php if (is_file(HOST . Url::to('/image/news/main/' . $obj['image']))): ?>
+                                    <?php $image = Html::img(Url::to('/image/news/main/' . $obj['image']), ['alt' => '']); ?>
+                                    <?php $imagePopUp = Url::to('/image/news/original/' . $obj['image']); ?>
                                 <?php else: ?>
-                                    -----
+                                    <?php $image = Html::img(Url::to('/pic/no-news.png'), ['alt' => '']); ?>
+                                    <?php $imagePopUp = Url::to('/pic/no-news-popup.pn'); ?>
                                 <?php endif; ?>
+                                <?php echo $image; ?>
                                 <div class="news_item_inner">
                                     <div class="category_date">
                                         <div class="category">новости</div>
@@ -31,26 +34,30 @@ use yii\helpers\Html; ?>
                                             "next":"<?php echo 'Следующая новость'; ?>",
                                             "name": "<?php echo $obj->name; ?>",
                                             "share":"<?php echo 'Поделиться'; ?>",
-                                            "img":["<?php echo Url::to('/image/news/original/' . $obj->image); ?>"],
+                                            "img":["<?php echo $imagePopUp; ?>"],
                                             "text":"<?php echo str_replace($from, $to, $text); ?>",
                                             "id":"<?php echo $obj->id; ?>"}'
                                              class="news_name mfiN"><?php echo $obj->name; ?></div>
                                     </div>
                                 </div>
-                                <div class="news_soc"><span>Поделиться</span><a href="#" target="_blank"
-                                                                                class="pop_face">
+                                <div class="news_soc">
+                                    <span>Поделиться</span>
+                                    <a href="#" target="_blank" class="pop_face">
                                         <svg>
                                             <use xlink:href="#icon_face"/>
                                         </svg>
-                                    </a><a href="#" target="_blank" class="pop_twit">
+                                    </a>
+                                    <a href="#" target="_blank" class="pop_twit">
                                         <svg>
                                             <use xlink:href="#icon_twit"/>
                                         </svg>
-                                    </a><a href="#" target="_blank" class="pop_google">
+                                    </a>
+                                    <a href="#" target="_blank" class="pop_google">
                                         <svg>
                                             <use xlink:href="#icon_google"/>
                                         </svg>
-                                    </a></div>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>

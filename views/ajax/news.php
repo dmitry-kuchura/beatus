@@ -7,10 +7,13 @@ use yii\helpers\Html;
     <div class="news_item_wrap">
         <div class="news_item_container">
             <?php if (is_file(HOST . Url::to('/image/news/main/' . $obj['image']))): ?>
-                <?php echo Html::img(Url::to('/image/news/main/' . $obj['image']), ['alt' => '']); ?>
+                <?php $image = Html::img(Url::to('/image/news/main/' . $obj['image']), ['alt' => '']); ?>
+                <?php $imagePopUp = Url::to('/image/news/original/' . $obj['image']); ?>
             <?php else: ?>
-                <?php echo Html::img(Url::to('/pic/no-news.png'), ['alt' => '']); ?>
+                <?php $image = Html::img(Url::to('/pic/no-news.png'), ['alt' => '']); ?>
+                <?php $imagePopUp = Url::to('/pic/no-news-popup.pn'); ?>
             <?php endif; ?>
+            <?php echo $image; ?>
             <div class="news_item_inner">
                 <div class="category_date">
                     <div class="category">новости</div>
@@ -25,7 +28,7 @@ use yii\helpers\Html;
                                             "next":"<?php echo 'Следующая новость'; ?>",
                                             "name": "<?php echo $obj['name']; ?>",
                                             "share":"<?php echo 'Поделиться'; ?>",
-                                            "img":["<?php echo Url::to('/pic/no-news-popup.png'); ?>"],
+                                            "img":["<?php echo $imagePopUp; ?>"],
                                             "text":"<?php echo str_replace($from, $to, $text); ?>",
                                             "id":"<?php echo $obj['id']; ?>"}'
                          class="news_name mfiN"><?php echo $obj['name']; ?></div>

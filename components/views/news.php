@@ -31,7 +31,7 @@ use yii\helpers\Html; ?>
                                             "next":"<?php echo 'Следующая новость'; ?>",
                                             "name": "<?php echo $obj->name; ?>",
                                             "share":"<?php echo 'Поделиться'; ?>",
-                                            "img":["<?php echo Url::to('/image/news/main/' . $obj->image); ?>"],
+                                            "img":["<?php echo Url::to('/image/news/original/' . $obj->image); ?>"],
                                             "text":"<?php echo str_replace($from, $to, $text); ?>",
                                             "id":"<?php echo $obj->id; ?>"}'
                                              class="news_name mfiN"><?php echo $obj->name; ?></div>

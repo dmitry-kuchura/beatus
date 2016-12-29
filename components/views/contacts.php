@@ -9,18 +9,15 @@
                     <input type="text" name="name" data-name="name" required data-rule-word="true"
                            data-rule-minlength="2"
                            placeholder="полное имя">
-                </div>
-                , я хотел бы поговорить о
+                </div>, я хотел бы поговорить о
                 <div class="form_input">
                     <input type="text" name="theme" data-name="theme" required data-rule-minlength="2"
                            placeholder="Вэб Разработка">
-                </div>
-                . Мой адрес электронной почты:
+                </div>. Мой адрес электронной почты:
                 <div class="form_input">
                     <input type="email" name="email" data-name="email" required data-rule-email="true"
                            placeholder="email@mail.com">
-                </div>
-                , мой номер:
+                </div>, мой номер:
                 <div class="form_input">
                     <input type="tel" name="phone" data-name="phone" required data-rule-digits="true"
                            data-rule-minlength="10"

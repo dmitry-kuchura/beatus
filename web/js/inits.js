@@ -1,27 +1,26 @@
 /*init.js*/
 /*
-    init.js v2.0
-    Wezom wTPL v4.0.0
-*/
-window.wHTML = (function($){
+ init.js v2.0
+ Wezom wTPL v4.0.0
+ */
+window.wHTML = (function ($) {
 
     /* Приватные переменные */
 
-        var varSeoIframe = 'seoIframe',
-            varSeoTxt = 'seoTxt',
-            varSeoClone = 'cloneSeo',
-            varSeoDelay = 200;
+    var varSeoIframe = 'seoIframe',
+        varSeoTxt = 'seoTxt',
+        varSeoClone = 'cloneSeo',
+        varSeoDelay = 200;
 
     /* Приватные функции */
 
-        /* проверка типа данных на объект */
-        var _isObject = function(data) {
-            var flag = (typeof data == 'object') && (data+'' != 'null');
+    /* проверка типа данных на объект */
+    var _isObject = function (data) {
+            var flag = (typeof data == 'object') && (data + '' != 'null');
             return flag;
         },
-
         /* создание нового элемента элемента */
-        _crtEl = function(tag, classes, attrs, jq) {
+        _crtEl = function (tag, classes, attrs, jq) {
             var tagName = tag || 'div';
             var element = document.createElement(tagName);
             var jQueryElement = jq || true;
@@ -46,26 +45,25 @@ window.wHTML = (function($){
                 return element;
             }
         },
-
         /* создаем iframe для сео текста */
-        _seoBuild = function(wrapper) {
+        _seoBuild = function (wrapper) {
             var seoTimer;
             // создаем iframe, который будет следить за resize'm окна
             var iframe = _crtEl('iframe', false, {id: varSeoIframe, name: varSeoIframe});
             iframe.css({
-                'position':'absolute',
-                'left':'0',
-                'top':'0',
-                'width':'100%',
-                'height':'100%',
-                'z-index':'-1'
+                'position': 'absolute',
+                'left': '0',
+                'top': '0',
+                'width': '100%',
+                'height': '100%',
+                'z-index': '-1'
             });
             // добавляем его в родитель сео текста
             wrapper.prepend(iframe);
             // "прослушка" ресайза
-            seoIframe.onresize = function() {
+            seoIframe.onresize = function () {
                 clearTimeout(seoTimer);
-                seoTimer = setTimeout(function() {
+                seoTimer = setTimeout(function () {
                     wHTML.seoSet();
                 }, varSeoDelay);
             };
@@ -75,96 +73,93 @@ window.wHTML = (function($){
 
     /* Публичные методы */
 
-        function Methods(){}
+    function Methods() {
+    }
 
-        Methods.prototype = {
-
-            /* установка cео текста на странице */
-            seoSet: function() {
-                if ($('#'+varSeoTxt).length) {
-                    var seoText = $('#'+varSeoTxt);
-                    var iframe = seoText.children('#'+varSeoIframe);
-                    if (iframe.length) {
-                        // если iframe сущствует устанавливаем на место сео текст
-                        var seoClone = $('#'+varSeoClone);
-                        if (seoClone.length) {
-                            // клонеру задаем высоту
-                            seoClone.height(seoText.outerHeight(true));
-                            // тексту задаем позицию
-                            seoText.css({
-                                top: seoClone.offset().top
-                            });
-                        } else {
-                            // клонера нету - бьем в колокола !!!
-                            console.error('"'+varSeoClone+'" - не найден!');
-                        }
+    Methods.prototype = {
+        /* установка cео текста на странице */
+        seoSet: function () {
+            if ($('#' + varSeoTxt).length) {
+                var seoText = $('#' + varSeoTxt);
+                var iframe = seoText.children('#' + varSeoIframe);
+                if (iframe.length) {
+                    // если iframe сущствует устанавливаем на место сео текст
+                    var seoClone = $('#' + varSeoClone);
+                    if (seoClone.length) {
+                        // клонеру задаем высоту
+                        seoClone.height(seoText.outerHeight(true));
+                        // тексту задаем позицию
+                        seoText.css({
+                            top: seoClone.offset().top
+                        });
                     } else {
-                        // если iframe отсутствует, создаем его и устанавливаем на место сео текст
-                        _seoBuild(seoText);
+                        // клонера нету - бьем в колокола !!!
+                        console.error('"' + varSeoClone + '" - не найден!');
                     }
-                }
-            },
-
-            /* magnificPopup inline */
-            mfi: function() {
-                $('.mfi').magnificPopup({
-                    type: 'inline',
-                    closeBtnInside: true,
-                    removalDelay: 300,
-                    mainClass: 'zoom-in'
-                });
-            },
-
-            /* magnificPopup ajax */
-            mfiAjax: function() {
-                $('body').magnificPopup({
-                    delegate: '.mfiA',
-                    callbacks: {
-                        elementParse: function(item) {
-                            this.st.ajax.settings = {
-                                url: item.el.data('url'),
-                                type: 'POST',
-                                data: (typeof item.el.data('param') !== 'undefined') ? item.el.data('param') : ''
-                            };
-                        },
-                        ajaxContentAdded: function(el) {
-                            wHTML.validation();
-                        }
-                    },
-                    type: 'ajax',
-                    removalDelay: 300,
-                    mainClass: 'zoom-in'
-                });
-            },
-
-            /* оборачивание iframe и video для адаптации */
-            wTxtIFRAME: function() {
-                var list = $('.wTxt').find('iframe').add($('.wTxt').find('video'));
-                if (list.length) {
-                    // в цикле для каждого
-                    for (var i = 0; i < list.length; i++) {
-                        var element = list[i];
-                        var jqElement = $(element);
-                        // если имеет класс ignoreHolder, пропускаем
-                        if (jqElement.hasClass('ignoreHolder')) {
-                            continue;
-                        }
-                        if (typeof jqElement.data('wraped') === 'undefined') {
-                            // определяем соотношение сторон
-                            var ratio = parseFloat((+element.offsetHeight / +element.offsetWidth * 100).toFixed(2));
-                            if (isNaN(ratio)) {
-                                // страховка 16:9
-                                ratio = 56.25;
-                            }
-                            // назнчаем дату и обрачиваем блоком
-                            jqElement.data('wraped', true).wrap('<div class="iframeHolder ratio_' + ratio.toFixed(0) + '" style="padding-top:'+ratio+'%;""></div>');
-                        }
-                    }
-                    // фиксим сео текст
-                    this.seoSet();
+                } else {
+                    // если iframe отсутствует, создаем его и устанавливаем на место сео текст
+                    _seoBuild(seoText);
                 }
             }
-        };
+        },
+        /* magnificPopup inline */
+        mfi: function () {
+            $('.mfi').magnificPopup({
+                type: 'inline',
+                closeBtnInside: true,
+                removalDelay: 300,
+                mainClass: 'zoom-in'
+            });
+        },
+        /* magnificPopup ajax */
+        mfiAjax: function () {
+            $('body').magnificPopup({
+                delegate: '.mfiA',
+                callbacks: {
+                    elementParse: function (item) {
+                        this.st.ajax.settings = {
+                            url: item.el.data('url'),
+                            type: 'POST',
+                            data: (typeof item.el.data('param') !== 'undefined') ? item.el.data('param') : ''
+                        };
+                    },
+                    ajaxContentAdded: function (el) {
+                        wHTML.validation();
+                    }
+                },
+                type: 'ajax',
+                removalDelay: 300,
+                mainClass: 'zoom-in'
+            });
+        },
+        /* оборачивание iframe и video для адаптации */
+        wTxtIFRAME: function () {
+            var list = $('.wTxt').find('iframe').add($('.wTxt').find('video'));
+            if (list.length) {
+                // в цикле для каждого
+                for (var i = 0; i < list.length; i++) {
+                    var element = list[i];
+                    var jqElement = $(element);
+                    // если имеет класс ignoreHolder, пропускаем
+                    if (jqElement.hasClass('ignoreHolder')) {
+                        continue;
+                    }
+                    if (typeof jqElement.data('wraped') === 'undefined') {
+                        // определяем соотношение сторон
+                        var ratio = parseFloat((+element.offsetHeight / +element.offsetWidth * 100).toFixed(2));
+                        if (isNaN(ratio)) {
+                            // страховка 16:9
+                            ratio = 56.25;
+                        }
+                        // назнчаем дату и обрачиваем блоком
+                        jqElement.data('wraped', true).wrap('<div class="iframeHolder ratio_' + ratio.toFixed(0) + '" style="padding-top:' + ratio + '%;""></div>');
+                    }
+                }
+                // фиксим сео текст
+                this.seoSet();
+            }
+        }
+    };
 
     /* Объявление wHTML и базовые свойства */
 
@@ -175,9 +170,7 @@ window.wHTML = (function($){
 })(jQuery);
 
 
-
-
-jQuery(document).ready(function($) {
+jQuery(document).ready(function ($) {
 
     // поддержка cssanimations
     transitFlag = Modernizr.cssanimations;
@@ -198,7 +191,7 @@ jQuery(document).ready(function($) {
     wHTML.validation();
 
     /**
-     * Инициализация слайдера 
+     * Инициализация слайдера
      * @name fred
      * @param {string} parent Блок оборачивающий слайдер
      * @param {Number} width Ширина
@@ -220,14 +213,14 @@ jQuery(document).ready(function($) {
                 onTouch: true
             },
             scroll: {
-                items: 1,                  
-                fx: fx,                   
+                items: 1,
+                fx: fx,
                 duration: 1200,
                 pauseOnHover: true,
-                onBefore: function(data) {
+                onBefore: function (data) {
                     var items = data.items.visible.first();
                     var item = items.find('.btn_go_next').data('slide');
-                    $('.js-slider_bg').trigger("slideTo", 'img[data-slide="'+item+'"]');
+                    $('.js-slider_bg').trigger("slideTo", 'img[data-slide="' + item + '"]');
                 }
             },
             prev: parent.closest('.slider').find('.js-prev'),
@@ -245,9 +238,9 @@ jQuery(document).ready(function($) {
     function services() {
         var img = $('.services_item.cur').data('img');
         var service = $('.services_item.cur').data('service');
-        $('.services_lister_right img').attr('src',img);
+        $('.services_lister_right img').attr('src', img);
         $('.services_text').removeClass('cur');
-        $('.services_text[data-service="'+service+'"]').addClass('cur');
+        $('.services_text[data-service="' + service + '"]').addClass('cur');
     }
 
     /**
@@ -258,90 +251,85 @@ jQuery(document).ready(function($) {
      * @param {Number} top Позиция по "y" относительно начала страницы
      * @param {Number} height Высота Хедера
      */
-    function anchor(item){
+    function anchor(item) {
         var anchor = item.data('anchor');
-        var ofset = $('.'+anchor).offset();
+        var ofset = $('.' + anchor).offset();
         var top = ofset.top;
         var height = $('.wHeader').height();
         $('body, html').stop().animate({
             scrollTop: top - height
         }, 500);
-        if($('.wHeaderCenter.show').length) {
+        if ($('.wHeaderCenter.show').length) {
             $('.wHeaderCenter').removeClass('show');
         }
     }
 
-    $('.mfiW').magnificPopup({
+    var form_popup = $('.hide_work').clone();
+    $('.works').magnificPopup({
         type: 'inline',
+        delegate: '.mfiW',
         inline: {
-            markup: '<div class="white-popup"><div class="mfp-close"></div>'+
-                        '<div class="popup_name_block">'+
-                            '<div class="popup_name"></div>'+
-                            '<div class="news_soc"><span class="share_span"></span><a href="" target="_blank" class="pop_face">'+
-                                '<svg>'+
-                                    '<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_face"></use>'+
-                                '</svg></a><a href="" target="_blank" class="pop_twit">'+
-                                '<svg>'+
-                                    '<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_twit"></use>'+
-                                '</svg></a><a href="" target="_blank" class="pop_google">'+
-                                '<svg>'+
-                                    '<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_google"></use>'+
-                                '</svg></a></div>'+
-                        '</div>'+
-                        '<div class="popup_text_block wTxt"></div>'+
-                        '<div class="popup_img_block"></div>'+
-                        '<div data-form="true" class="popup_form_block wForm" novalidate="novalidate">'+
-                            '<div class="form_inner">Меня зовут  '+
-                                '<div class="form_input">'+
-                                    '<input type="text" name="pop_name" required="" data-rule-word="true" data-rule-minlength="2" placeholder="полное имя" aria-required="true">'+
-                                '</div>,  я хотел бы получить подробный отчет о проекте.  Мой email:  '+
-                                '<div class="form_input">'+
-                                    '<input type="email" name="pop_mail" required="" data-rule-email="true" placeholder="email@mail.com" aria-required="true">'+
-                                '</div>'+
-                            '</div>'+
-                            '<input type="hidden" value="" />'+
-                            '<button class="wSubmit"><span>Получить подробный отчет</span></button>'+
-                        '</div>'+
-                        '<div class="popup_controls_block">'+
-                            '<div class="go_left w_fll">'+
-                                '<div class="pagg_svg">'+
-                                    '<svg>'+
-                                        '<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_prev"></use>'+
-                                    '</svg>'+
-                                '</div><span>Предыдущий проект</span>'+
-                            '</div>'+
-                            '<div class="go_right w_flr"><span>Следующий проект</span>'+
-                                '<div class="pagg_svg">'+
-                                    '<svg>'+
-                                        '<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_next"></use>'+
-                                    '</svg>'+
-                                '</div>'+
-                            '</div>'+
-                            '<div class="w_clear"></div>'+
-                        '</div>'+
-                    '</div>'
+            markup: '<div class="white-popup"><div class="mfp-close"></div>' +
+            '<div class="popup_name_block">' +
+            '<div class="popup_name"></div>' +
+            '<div class="news_soc"><span class="share_span"></span><a href="" target="_blank" class="pop_face">' +
+            '<svg>' +
+            '<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_face"></use>' +
+            '</svg></a><a href="" target="_blank" class="pop_twit">' +
+            '<svg>' +
+            '<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_twit"></use>' +
+            '</svg></a><a href="" target="_blank" class="pop_google">' +
+            '<svg>' +
+            '<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_google"></use>' +
+            '</svg></a></div>' +
+            '</div>' +
+            '<div class="popup_text_block wTxt"></div>' +
+            '<div class="popup_img_block"></div>' + form_popup.html() +
+            '<div class="popup_controls_block">' +
+            '<div class="go_left w_fll">' +
+            '<div class="pagg_svg">' +
+            '<svg>' +
+            '<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_prev"></use>' +
+            '</svg>' +
+            '</div><span></span>' +
+            '</div>' +
+            '<div class="go_right w_flr"><span></span>' +
+            '<div class="pagg_svg">' +
+            '<svg>' +
+            '<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_next"></use>' +
+            '</svg>' +
+            '</div>' +
+            '</div>' +
+            '<div class="w_clear"></div>' +
+            '</div>' +
+            '</div>'
         },
         gallery: {
-            enabled: true 
+            enabled: true
         },
         fixedContentPos: true,
         callbacks: {
-            markupParse: function(template, values, item) {
+            markupParse: function (template, values, item) {
                 var item_img = item.el.data('markup').img;
                 var img = '';
-                if(item_img){
-                    for(var i=0; i<item_img.length; i++) {
-                        img+='<img src="'+item_img[i]+'" alt="" />';
+                if (item_img) {
+                    for (var i = 0; i < item_img.length; i++) {
+                        img += '<img src="' + item_img[i] + '" alt="" />';
                     }
                 }
                 $(template).find('.popup_img_block').html(img);
                 $(template).find('.popup_name').text(item.el.data('markup').name);
                 $(template).find('.news_soc .share_span').text(item.el.data('markup').share);
                 $(template).find('.popup_text_block').html(item.el.data('markup').text);
-                $(template).find('input[type="hidden"]').val(item.el.data('markup').id);
+                $(template).find('input[name="project"]').val(item.el.data('markup').id);
+                $(template).find('.go_left span').text(item.el.data('markup').prev);
+                $(template).find('.go_right span').text(item.el.data('markup').next);
             },
-            open: function(){
+            open: function () {
                 wHTML.validation();
+                if ($('.phoneMask').length) {
+                    $('.phoneMask').inputmask({alias: 'phone'});
+                }
             }
         },
         closeBtnInside: true,
@@ -350,75 +338,80 @@ jQuery(document).ready(function($) {
     });
 
     var magnificPopup = $.magnificPopup.instance;
-    $('body').on('click', '.go_left', function(){
+    $('body').on('click', '.go_left', function () {
         magnificPopup.prev();
     });
-    $('body').on('click', '.go_right', function(){
+    $('body').on('click', '.go_right', function () {
         magnificPopup.next();
     });
 
-    $('.mfiN').magnificPopup({
+    $('.news').magnificPopup({
         type: 'inline',
+        delegate: '.mfiN',
         inline: {
-            markup: '<div class="white-popup new_pop"><div class="mfp-close"></div>'+
-                        '<div class="popup_name_block">'+
-                            '<div class="popup_name"></div>'+
-                            '<div class="news_soc">'+
-                                '<div class="category_date">'+
-                                    '<div class="category">новости</div><span>/</span>'+
-                                    '<div class="date">10/02/2016</div>'+
-                                '</div><span class="share_span"></span><a href="#" target="_blank" class="pop_face">'+
-                                    '<svg>'+
-                                        '<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_face"></use>'+
-                                    '</svg></a><a href="#" target="_blank" class="pop_twit">'+
-                                    '<svg>'+
-                                        '<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_twit"></use>'+
-                                    '</svg></a><a href="#" target="_blank" class="pop_google">'+
-                                    '<svg>'+
-                                        '<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_google"></use>'+
-                                    '</svg></a>'+
-                            '</div>'+
-                        '</div>'+
-                        '<div class="popup_img_block"></div>'+
-                        '<div class="popup_text_block wTxt"></div>'+
-                        '<div class="popup_controls_block">'+
-                            '<div class="go_left w_fll">'+
-                                '<div class="pagg_svg">'+
-                                    '<svg>'+
-                                        '<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_prev"></use>'+
-                                    '</svg>'+
-                                '</div><span>Предыдущая новость</span>'+
-                            '</div>'+
-                            '<div class="go_right w_flr"><span>Следующая новость</span>'+
-                                '<div class="pagg_svg">'+
-                                    '<svg>'+
-                                        '<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_next"></use>'+
-                                    '</svg>'+
-                                '</div>'+
-                            '</div>'+
-                            '<div class="w_clear"></div>'+
-                        '</div>'+
-                    '</div>'
+            markup: '<div class="white-popup new_pop"><div class="mfp-close"></div>' +
+            '<div class="popup_name_block">' +
+            '<div class="popup_name"></div>' +
+            '<div class="news_soc">' +
+            '<div class="category_date">' +
+            '<div class="category"></div><span>/</span>' +
+            '<div class="date"></div>' +
+            '</div><span class="share_span"></span><a href="#" target="_blank" class="pop_face">' +
+            '<svg>' +
+            '<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_face"></use>' +
+            '</svg></a><a href="#" target="_blank" class="pop_twit">' +
+            '<svg>' +
+            '<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_twit"></use>' +
+            '</svg></a><a href="#" target="_blank" class="pop_google">' +
+            '<svg>' +
+            '<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_google"></use>' +
+            '</svg></a>' +
+            '</div>' +
+            '</div>' +
+            '<div class="popup_img_block"></div>' +
+            '<div class="popup_text_block wTxt"></div>' +
+            '<div class="popup_controls_block">' +
+            '<div class="go_left w_fll">' +
+            '<div class="pagg_svg">' +
+            '<svg>' +
+            '<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_prev"></use>' +
+            '</svg>' +
+            '</div><span></span>' +
+            '</div>' +
+            '<div class="go_right w_flr"><span></span>' +
+            '<div class="pagg_svg">' +
+            '<svg>' +
+            '<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_next"></use>' +
+            '</svg>' +
+            '</div>' +
+            '</div>' +
+            '<div class="w_clear"></div>' +
+            '</div>' +
+            '</div>'
         },
         gallery: {
-            enabled: true 
+            enabled: true
         },
         fixedContentPos: true,
         callbacks: {
-            markupParse: function(template, values, item) {
+            markupParse: function (template, values, item) {
+                console.log(item.el.data('markup'));
                 var item_img = item.el.data('markup').img;
                 var img = '';
-                if(item_img){
-                    for(var i=0; i<item_img.length; i++) {
-                        img+='<img src="'+item_img[i]+'" alt="" />';
+                if (item_img) {
+                    for (var i = 0; i < item_img.length; i++) {
+                        img += '<img src="' + item_img[i] + '" alt="" />';
                     }
                 }
-                console.log(item.el.data('markup'));
                 $(template).find('.popup_img_block').html(img);
                 $(template).find('.popup_name').text(item.el.data('markup').name);
                 $(template).find('.news_soc .share_span').text(item.el.data('markup').share);
                 $(template).find('.popup_text_block').html(item.el.data('markup').text);
                 $(template).find('input[type="hidden"]').val(item.el.data('markup').id);
+                $(template).find('.go_left span').text(item.el.data('markup').prev);
+                $(template).find('.go_right span').text(item.el.data('markup').next);
+                $(template).find('.category').text(item.el.data('markup').category);
+                $(template).find('.date').text(item.el.data('markup').date);
             }
         },
         closeBtnInside: true,
@@ -426,31 +419,31 @@ jQuery(document).ready(function($) {
         mainClass: 'zoom-in'
     });
 
-    if($('.services_lister').length) {
+    if ($('.services_lister').length) {
         services();
-        $('.services_item').on('click', function(){
+        $('.services_item').on('click', function () {
             $('.services_item').removeClass('cur');
             $(this).addClass('cur');
             services();
         });
     }
 
-    if($('.js-anchor').length) {
-        $('.js-anchor').on('click', function(){
+    if ($('.js-anchor').length) {
+        $('.js-anchor').on('click', function () {
             anchor($(this));
         });
     }
 
-    if($('.language').length) {
-        $('.language').on('click', function(){
+    if ($('.language').length) {
+        $('.language').on('click', function () {
             $(this).toggleClass('show');
         });
-        $('body').on('click', function(e){
-            if(!$(e.target).closest('.language').length && $('.language').hasClass('show')){
+        $('body').on('click', function (e) {
+            if (!$(e.target).closest('.language').length && $('.language').hasClass('show')) {
                 $('.language').removeClass('show');
             }
         });
-        $('.language_drop').on('click', 'span', function(){
+        $('.language_drop').on('click', 'span', function () {
             var lang = $(this).data('lang');
             $('.language_drop span').removeClass('cur');
             $(this).addClass('cur');
@@ -458,58 +451,55 @@ jQuery(document).ready(function($) {
         });
     }
 
-    if($('.menu_btn').length) {
-        $('.menu_btn').on('click', function(e){
+    if ($('.menu_btn').length) {
+        $('.menu_btn').on('click', function (e) {
             $('.wHeaderCenter').toggleClass('show');
         });
-        $('body').on('click', function(e){
-            if(!$(e.target).closest('.wHeaderCenter').length && !$(e.target).closest('.menu_btn').length && $('.wHeaderCenter').hasClass('show')){
+        $('body').on('click', function (e) {
+            if (!$(e.target).closest('.wHeaderCenter').length && !$(e.target).closest('.menu_btn').length && $('.wHeaderCenter').hasClass('show')) {
                 $('.wHeaderCenter').removeClass('show');
             }
         });
     }
 
-    $('body').on('keyup touch', '.wForm input', function(){
+    $('body').on('keyup touch', '.wForm input', function () {
         var width = $(this).width();
         var text = $(this).val().length;
-        if($(window).width()>1024){
-            if(text*25 >= width) {
-                $(this).css('font-size','30px');
-            }
-            else {
-                $(this).css('font-size','40px');
-            }
-        }
-        if($(window).width()>720 && $(window).width()<1024){
-            if(text*25 >= width) {
-                $(this).css('font-size','20px');
-            }
-            else {
-                $(this).css('font-size','30px');
+        if ($(window).width() > 1024) {
+            if (text * 25 >= width) {
+                $(this).css('font-size', '30px');
+            } else {
+                $(this).css('font-size', '40px');
             }
         }
-        if($(window).width()<720){
-            if(text*25 >= width) {
-                $(this).css('font-size','15px');
+        if ($(window).width() > 720 && $(window).width() < 1024) {
+            if (text * 25 >= width) {
+                $(this).css('font-size', '20px');
+            } else {
+                $(this).css('font-size', '30px');
             }
-            else {
-                $(this).css('font-size','20px');
+        }
+        if ($(window).width() < 720) {
+            if (text * 25 >= width) {
+                $(this).css('font-size', '15px');
+            } else {
+                $(this).css('font-size', '20px');
             }
         }
     });
 
-    $(window).resize(function() {
+    $(window).resize(function () {
 
-        if($('.js-slider').length) {
+        if ($('.js-slider').length) {
             $('.js-slider').trigger('destroy', true);
-            setTimeout(function(){
+            setTimeout(function () {
                 fred($('.js-slider'), 'auto', true, true, $('.js-slider_pagg'), 'scroll');
             }, 300);
         }
 
-        if($('.js-slider_bg').length) {
+        if ($('.js-slider_bg').length) {
             $('.js-slider_bg').trigger('destroy', true);
-            setTimeout(function(){
+            setTimeout(function () {
                 $('.js-slider_bg').carouFredSel({
                     responsive: true,
                     auto: {
@@ -520,8 +510,8 @@ jQuery(document).ready(function($) {
                         onTouch: true
                     },
                     scroll: {
-                        items: 1,                  
-                        fx: 'crossfade',                   
+                        items: 1,
+                        fx: 'crossfade',
                         duration: 1200,
                         pauseOnHover: true
                     }
@@ -531,7 +521,7 @@ jQuery(document).ready(function($) {
             }, 300);
         }
 
-        if($('.beuseful_slider ul').length) {
+        if ($('.beuseful_slider ul').length) {
             $('.beuseful_slider ul').carouFredSel({
                 responsive: true,
                 auto: {
@@ -542,8 +532,8 @@ jQuery(document).ready(function($) {
                     onTouch: true
                 },
                 scroll: {
-                    items: 1,                  
-                    fx: 'crossfade',                   
+                    items: 1,
+                    fx: 'crossfade',
                     duration: 1200,
                     pauseOnHover: true
                 },
@@ -557,15 +547,21 @@ jQuery(document).ready(function($) {
 
     });
 
-    $(window).load(function() {
+    if ($('.bg_map').length) {
+        $('.bg_map').on('click', function () {
+            $(this).remove();
+        });
+    }
+
+    $(window).load(function () {
         // оборачивание iframe и video для адаптации
         wHTML.wTxtIFRAME();
 
-        if($('.js-slider').length) {
+        if ($('.js-slider').length) {
             fred($('.js-slider'), 'auto', true, true, $('.js-slider_pagg'), 'scroll');
         }
 
-        if($('.js-slider_bg').length) {
+        if ($('.js-slider_bg').length) {
             $('.js-slider_bg').carouFredSel({
                 responsive: true,
                 auto: {
@@ -576,8 +572,8 @@ jQuery(document).ready(function($) {
                     onTouch: true
                 },
                 scroll: {
-                    items: 1,                  
-                    fx: 'crossfade',                   
+                    items: 1,
+                    fx: 'crossfade',
                     duration: 1200,
                     pauseOnHover: true
                 }
@@ -586,7 +582,7 @@ jQuery(document).ready(function($) {
             });
         }
 
-        if($('.beuseful_slider ul').length) {
+        if ($('.beuseful_slider ul').length) {
             $('.beuseful_slider ul').carouFredSel({
                 responsive: true,
                 auto: {
@@ -597,8 +593,8 @@ jQuery(document).ready(function($) {
                     onTouch: true
                 },
                 scroll: {
-                    items: 1,                  
-                    fx: 'crossfade',                   
+                    items: 1,
+                    fx: 'crossfade',
                     duration: 1200,
                     pauseOnHover: true
                 },
@@ -619,6 +615,7 @@ jQuery(document).ready(function($) {
                 parseInt($("#js-map").attr('data-map-z'), 10),
                 $('#js-map').attr('data-map-icon')
             ];
+
             function loadGoogleMap() {
                 var myLatlng = new google.maps.LatLng(mapdata[0], mapdata[1]);
                 var myOptions = {
@@ -640,7 +637,12 @@ jQuery(document).ready(function($) {
                     icon: mapdata[3]
                 });
             }
+
             loadGoogleMap();
+        }
+
+        if ($('.phoneMask').length) {
+            $('.phoneMask').inputmask({alias: 'phone'});
         }
 
     });

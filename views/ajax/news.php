@@ -11,7 +11,7 @@ use yii\helpers\Html;
                 <?php $imagePopUp = Url::to('/image/news/original/' . $obj['image']); ?>
             <?php else: ?>
                 <?php $image = Html::img(Url::to('/pic/no-news.png'), ['alt' => '']); ?>
-                <?php $imagePopUp = Url::to('/pic/no-news-popup.pn'); ?>
+                <?php $imagePopUp = Url::to('/pic/no-news-popup.png'); ?>
             <?php endif; ?>
             <?php echo $image; ?>
             <div class="news_item_inner">

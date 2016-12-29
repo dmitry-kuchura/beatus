@@ -9,7 +9,7 @@ use yii\helpers\Html;
             <?php if (is_file(HOST . Url::to('/image/news/main/' . $obj['image']))): ?>
                 <?php echo Html::img(Url::to('/image/news/main/' . $obj['image']), ['alt' => '']); ?>
             <?php else: ?>
-                -----
+                <?php echo Html::img(Url::to('/pic/no-news.png'), ['alt' => '']); ?>
             <?php endif; ?>
             <div class="news_item_inner">
                 <div class="category_date">
@@ -25,7 +25,7 @@ use yii\helpers\Html;
                                             "next":"<?php echo 'Следующая новость'; ?>",
                                             "name": "<?php echo $obj['name']; ?>",
                                             "share":"<?php echo 'Поделиться'; ?>",
-                                            "img":["<?php echo Url::to('/image/news/original/' . $obj['image']); ?>"],
+                                            "img":["<?php echo Url::to('/pic/no-news-popup.png'); ?>"],
                                             "text":"<?php echo str_replace($from, $to, $text); ?>",
                                             "id":"<?php echo $obj['id']; ?>"}'
                          class="news_name mfiN"><?php echo $obj['name']; ?></div>

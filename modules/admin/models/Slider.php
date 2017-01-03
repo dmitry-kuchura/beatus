@@ -1,6 +1,6 @@
 <?php
 
-namespace app\models;
+namespace app\modules\admin\models;
 
 use Yii;
 
@@ -50,13 +50,13 @@ class Slider extends \yii\db\ActiveRecord
             'id' => 'ID',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
-            'name' => 'Заголовок',
+            'name' => 'Name',
             'title' => 'Title',
-            'text' => 'Текст',
-            'slide' => 'Изображение слайда',
-            'bg' => 'Фон слайда',
-            'status' => 'Статус',
-            'sort' => 'Сортировка',
+            'text' => 'Text',
+            'slide' => 'Slide',
+            'bg' => 'Bg',
+            'status' => 'Status',
+            'sort' => 'Sort',
         ];
     }
 }

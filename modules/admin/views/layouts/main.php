@@ -99,20 +99,39 @@ AdminAsset::register($this);
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item <?php echo $ctrl == 'project' ? 'active open' : ''; ?>">
+                    <li class="nav-item <?php echo $ctrl == 'slider' ? 'active open' : ''; ?>">
+                        <a href="javascript:;" class="nav-link nav-toggle">
+                            <i class="icon-picture"></i>
+                            <span class="title">Слайдер</span>
+                            <span class="arrow <?php echo $ctrl == 'slider' ? 'open' : ''; ?>"></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li class="nav-item <?php echo $active == 'admin/slider/index' ? 'active open' : ''; ?>">
+                                <a href="<?php echo Url::to(['/admin/slider']); ?>" class="nav-link ">
+                                    <span class="title">Список слайдов</span>
+                                </a>
+                            </li>
+                            <li class="nav-item <?php echo $active == 'admin/slider/create' ? 'active open' : ''; ?>">
+                                <a href="<?php echo Url::to(['/admin/slider/create']); ?>" class="nav-link ">
+                                    <span class="title">Создать слайд</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item <?php echo $ctrl == 'projects' ? 'active open' : ''; ?>">
                         <a href="javascript:;" class="nav-link nav-toggle">
                             <i class="icon-layers"></i>
                             <span class="title">Проекты</span>
-                            <span class="arrow <?php echo $ctrl == 'project' ? 'open' : ''; ?>"></span>
+                            <span class="arrow <?php echo $ctrl == 'projects' ? 'open' : ''; ?>"></span>
                         </a>
                         <ul class="sub-menu">
-                            <li class="nav-item <?php echo $active == 'admin/project/index' ? 'active open' : ''; ?>">
-                                <a href="<?php echo Url::to(['/admin/pages']); ?>" class="nav-link ">
+                            <li class="nav-item <?php echo $active == 'admin/projects/index' ? 'active open' : ''; ?>">
+                                <a href="<?php echo Url::to(['/admin/projects']); ?>" class="nav-link ">
                                     <span class="title">Список проектов</span>
                                 </a>
                             </li>
-                            <li class="nav-item <?php echo $active == 'admin/project/create' ? 'active open' : ''; ?>">
-                                <a href="<?php echo Url::to(['/admin/pages/create']); ?>" class="nav-link ">
+                            <li class="nav-item <?php echo $active == 'admin/projects/create' ? 'active open' : ''; ?>">
+                                <a href="<?php echo Url::to(['/admin/projects/create']); ?>" class="nav-link ">
                                     <span class="title">Создать проект</span>
                                 </a>
                             </li>
